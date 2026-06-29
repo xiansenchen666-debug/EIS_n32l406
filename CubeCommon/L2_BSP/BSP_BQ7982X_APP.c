@@ -44,7 +44,216 @@
 #error "ACTIVECHANNELS must be in the 6..26 range for BQ7982X DEV_CONF2.NUM_CELL"
 #endif
 
-#define BQ7982X_NUM_CELL_CFG ((uint8_t)(ACTIVECHANNELS - 1u))
+#define BQ7982X_MIN_CELL_COUNT 6u
+
+static uint8_t s_bq7982x_active_cell_count = ACTIVECHANNELS;
+static uint8_t s_bq7982x_part_id = 0u;
+static uint8_t s_bq7982x_tapeout_revision = 0u;
+static uint8_t s_bq7982x_is_c0_revision = 0u;
+
+uint8_t BQ7982X_NormalizeCellCount(uint8_t cell_count)
+{
+    if (cell_count < BQ7982X_MIN_CELL_COUNT) {
+        return BQ7982X_MIN_CELL_COUNT;
+    }
+    if (cell_count > ACTIVECHANNELS) {
+        return ACTIVECHANNELS;
+    }
+    return cell_count;
+}
+
+uint8_t BQ7982X_SetActiveCellCount(uint8_t cell_count)
+{
+    s_bq7982x_active_cell_count = BQ7982X_NormalizeCellCount(cell_count);
+    return s_bq7982x_active_cell_count;
+}
+
+uint8_t BQ7982X_GetActiveCellCount(void)
+{
+    return s_bq7982x_active_cell_count;
+}
+
+uint8_t BQ7982X_GetPartId(void)
+{
+    return s_bq7982x_part_id;
+}
+
+uint8_t BQ7982X_GetTapeoutRevision(void)
+{
+    return s_bq7982x_tapeout_revision;
+}
+
+uint8_t BQ7982X_IsC0Revision(void)
+{
+    return s_bq7982x_is_c0_revision;
+}
+
+int8_t BQ7982X_DetectSiliconRevision(uint8_t BQID, uint8_t *ReadBuf)
+{
+    uint8_t all_layer_revision;
+    uint8_t metal_revision;
+    uint16_t crc;
+    int received;
+
+    if (ReadBuf == NULL || BQID >= TOTALBOARDS) {
+        return -1;
+    }
+
+    received = ReadReg(BQID, BQ7982X_PARTID_OFFSET,
+                       ReadBuf, 2u, 0u, FRMWRT_SGL_R);
+    if (received != 8) {
+        return -1;
+    }
+
+    crc = CRC16(ReadBuf, 6);
+    if (ReadBuf[6] != (uint8_t)(crc & 0xFFu) ||
+            ReadBuf[7] != (uint8_t)(crc >> 8)) {
+        return -1;
+    }
+
+    s_bq7982x_part_id = ReadBuf[4];
+    s_bq7982x_tapeout_revision = ReadBuf[5];
+    all_layer_revision = (uint8_t)(s_bq7982x_tapeout_revision &
+                                   BQ7982X_MSK_TAPEOUT_REV_ALL_LAYER_REV);
+    metal_revision = (uint8_t)(
+                         (s_bq7982x_tapeout_revision &
+                          (BQ7982X_TAPEOUT_REV_METAL_REV_MSK << 4)) >> 4);
+    s_bq7982x_is_c0_revision =
+        (all_layer_revision >= 2u || metal_revision >= 2u) ? 1u : 0u;
+    return 0;
+}
+
+int8_t BQ7982X_ApplyActiveCellCount(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writetype)
+{
+    uint8_t bID_temp = 0;
+    uint8_t j;
+    uint8_t cell_count;
+    uint8_t num_cell;
+
+    if (pBQDev == NULL) {
+        return -1;
+    }
+
+    if (Writetype == FRMWRT_SGL_W) {
+        if (BQID >= TOTALBOARDS) {
+            return -1;
+        }
+        bID_temp = BQID;
+    } else if (Writetype != FRMWRT_STK_W && Writetype != FRMWRT_ALL_W) {
+        return -1;
+    }
+
+    cell_count = BQ7982X_GetActiveCellCount();
+    num_cell = (uint8_t)(cell_count - 1u);
+    for (j = 0; j < TOTALBOARDS; j++) {
+        pBQDev[j].DevConf2.fs.num_cell = num_cell;
+    }
+
+    WriteReg(bID_temp, BQ7982X_DEV_CONF2_OFFSET, pBQDev[bID_temp].DevConf2.reg, 1, Writetype);
+    return 0;
+}
+
+int8_t BQ7982X_ReadActiveCellCount(uint8_t BQID, uint8_t *ReadBuf, uint8_t *cell_count)
+{
+    uint16_t crc;
+    int received;
+
+    if (ReadBuf == NULL || cell_count == NULL || BQID >= TOTALBOARDS) {
+        return -1;
+    }
+
+    received = ReadReg(BQID, BQ7982X_DEV_CONF2_OFFSET,
+                       ReadBuf, 1u, 0u, FRMWRT_SGL_R);
+    if (received != 7) {
+        return -1;
+    }
+
+    crc = CRC16(ReadBuf, 5);
+    if (ReadBuf[5] != (uint8_t)(crc & 0xFFu) ||
+            ReadBuf[6] != (uint8_t)(crc >> 8)) {
+        return -1;
+    }
+
+    *cell_count = (uint8_t)((ReadBuf[4] &
+                             BQ7982X_DEV_CONF2_NUM_CELL_MSK) + 1u);
+    return 0;
+}
+
+int8_t BQ7982X_VerifyActiveCellCount(uint8_t BQID, uint8_t *ReadBuf)
+{
+    uint8_t actual_count;
+    uint8_t attempt;
+
+    for (attempt = 0u; attempt < 3u; attempt++) {
+        if (BQ7982X_ReadActiveCellCount(BQID, ReadBuf, &actual_count) == 0 &&
+                actual_count == BQ7982X_GetActiveCellCount()) {
+            return 0;
+        }
+        DEVICE_DELAY_US(100u);
+    }
+    return -1;
+}
+
+static void BQ7982X_ConfigDigitalSync(bq7982x_dev_t *pBQDev)
+{
+    uint8_t j;
+    uint8_t bID_temp;
+
+    if (pBQDev == NULL) {
+        return;
+    }
+
+    if (BQ7982X_IsC0Revision() == 0u) {
+        pBQDev->DigSyncConf1.fs.addrh = 0x02u;
+        pBQDev->DigSyncConf2.fs.addrl = 0x31u;
+        WriteReg(0, BQ7982X_DIG_SYNC_CONF1_OFFSET,
+                 ((uint16_t)pBQDev->DigSyncConf1.reg << 8) +
+                 pBQDev->DigSyncConf2.reg,
+                 2, FRMWRT_ALL_W);
+
+        WriteReg(0, BQ7982X_LEGACY_DIG_SYNC_CTRL3_OFFSET,
+                 0x05000000u, 4, FRMWRT_SGL_W);
+        for (j = 1; j < TOTALBOARDS; j++) {
+            bID_temp = j;
+            WriteReg(bID_temp, BQ7982X_LEGACY_DIG_SYNC_CTRL3_OFFSET,
+                     0x1B000000u, 4, FRMWRT_SGL_W);
+        }
+        return;
+    }
+
+    pBQDev->DigSyncConf1.fs.addrh = 0x02u;
+    pBQDev->DigSyncConf2.fs.addrl = 0x37u;
+    WriteReg(0, BQ7982X_DIG_SYNC_CONF1_OFFSET,
+             ((uint16_t)pBQDev->DigSyncConf1.reg << 8) + pBQDev->DigSyncConf2.reg,
+             2, FRMWRT_ALL_W);
+
+    pBQDev->DigSyncCtrl1.fs.gain1h = 0x01u;
+    pBQDev->DigSyncCtrl2.fs.gain1l = 0x2Cu;
+    WriteReg(0, BQ7982X_DIG_SYNC_CTRL1_OFFSET,
+             ((uint16_t)pBQDev->DigSyncCtrl1.reg << 8) + pBQDev->DigSyncCtrl2.reg,
+             2, FRMWRT_ALL_W);
+
+    pBQDev->DigSyncCtrl5.fs.gain2h = 0x01u;
+    pBQDev->DigSyncCtrl6.fs.gain2l = 0x90u;
+    WriteReg(0, BQ7982X_DIG_SYNC_CTRL5_OFFSET,
+             ((uint16_t)pBQDev->DigSyncCtrl5.reg << 8) + pBQDev->DigSyncCtrl6.reg,
+             2, FRMWRT_ALL_W);
+
+    pBQDev[0].DigSyncCtrl9.reg = 0u;
+    pBQDev[0].DigSyncCtrl9.fs.sync_dev_mode = 0x02u;
+    pBQDev[0].DigSyncCtrl9.fs.sync_dev_go = 0x01u;
+    WriteReg(0, BQ7982X_DIG_SYNC_CTRL9_OFFSET, pBQDev[0].DigSyncCtrl9.reg, 1, FRMWRT_SGL_W);
+
+    for (j = 1; j < TOTALBOARDS; j++) {
+        bID_temp = j;
+        pBQDev[j].DigSyncCtrl9.reg = 0u;
+        pBQDev[j].DigSyncCtrl9.fs.sync_dev_frame = 0x01u;
+        pBQDev[j].DigSyncCtrl9.fs.sync_dev_dir = 0x01u;
+        pBQDev[j].DigSyncCtrl9.fs.sync_dev_mode = 0x01u;
+        pBQDev[j].DigSyncCtrl9.fs.sync_dev_go = 0x01u;
+        WriteReg(bID_temp, BQ7982X_DIG_SYNC_CTRL9_OFFSET, pBQDev[j].DigSyncCtrl9.reg, 1, FRMWRT_SGL_W);
+    }
+}
 
 /**
  * BQ Device Delay Task fucntion group
@@ -2029,6 +2238,11 @@ int8_t Read_EIS_CV(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, uint8_
 }
 
 
+int8_t Read_EIS_CV_I(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, uint8_t Readtype)
+{
+    return Read_EIS_CV(BQID, pBQDev, ReadBuf, Readtype);
+}
+
 /**
  * @brief 读取 EIS 电流部分 (Read EIS Cell Current)
  *        读取 EIS 测得的电流通道的实部和虚部
@@ -2151,15 +2365,43 @@ int8_t Read_EIS_CC(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, uint8_
  * @param out_P 输出相位数组指针 (Output Phase)
  * @param out_M 输出幅值数组指针 (Output Magnitude)
  */
-void EIS_Z_Cal(bq7982x_dev_t *pBQDev, float* out_P, float* out_M)
+void EIS_Z_Cal(bq7982x_dev_t *pBQDev, float* out_P, float* out_M, float* out_MV, float* out_MI)
 {
     uint8_t i,j,j_cs;
     float pi = 3.1415926;
+    if (pBQDev == NULL) {
+        return;
+    }
     for (j = 0; j < TOTALBOARDS; j++) {
         for (i = 0; i < ACTIVECHANNELS; i++) {
             // 确定电流采样所在的板卡 (通常堆叠配置中，电流采样可能只在特定的板卡上)
-            if (j == 0 || j == 1) j_cs = 0;
-            else if (j == 2 || j == 3) j_cs =2;
+            if (j < 2u) j_cs = 0;
+            else if (j < 4u) j_cs = 2;
+            else j_cs = 0;
+            if (j_cs >= TOTALBOARDS) j_cs = 0;
+
+            {
+                float current_den =
+                    pBQDev[j_cs].CSeis_R_Decode[0] * pBQDev[j_cs].CSeis_R_Decode[0] +
+                    pBQDev[j_cs].CSeis_I_Decode[0] * pBQDev[j_cs].CSeis_I_Decode[0];
+                float vc_mag = (float)sqrt(
+                    pBQDev[j].VCeis_R_Decode[i] * pBQDev[j].VCeis_R_Decode[i] +
+                    pBQDev[j].VCeis_I_Decode[i] * pBQDev[j].VCeis_I_Decode[i]);
+                float cs_mag = (float)sqrt(current_den);
+                uint16_t out_idx = (uint16_t)j * ACTIVECHANNELS + i;
+
+                if (current_den <= 1.0e-18f) {
+                    pBQDev[j].Zeis_R_Decode[i] = 0.0f;
+                    pBQDev[j].Zeis_I_Decode[i] = 0.0f;
+                    pBQDev[j].Zeis_M_Decode[i] = 0.0f;
+                    pBQDev[j].Zeis_P_Decode[i] = 0.0f;
+                    if (out_P != NULL) out_P[out_idx] = 0.0f;
+                    if (out_M != NULL) out_M[out_idx] = 0.0f;
+                    if (out_MV != NULL) out_MV[out_idx] = vc_mag;
+                    if (out_MI != NULL) out_MI[out_idx] = cs_mag;
+                    continue;
+                }
+            }
             
             // Zreal (阻抗实部)
             pBQDev[j].Zeis_R_Decode[i] = (
@@ -2191,8 +2433,19 @@ void EIS_Z_Cal(bq7982x_dev_t *pBQDev, float* out_P, float* out_M)
             (float)(atan2(pBQDev[j].Zeis_I_Decode[i], pBQDev[j].Zeis_R_Decode[i]) * 180 / pi)              
             );    
             // 根据用户定义：result_decode_P 为阻抗 (Magnitude)，result_decode_M 为相位 (Phase)
-            out_P[j * ACTIVECHANNELS + i] =  pBQDev[j].Zeis_P_Decode[i];
-            out_M[j * ACTIVECHANNELS + i] =  pBQDev[j].Zeis_M_Decode[i];
+            {
+                uint16_t out_idx = (uint16_t)j * ACTIVECHANNELS + i;
+                float vc_mag = (float)sqrt(
+                    pBQDev[j].VCeis_R_Decode[i] * pBQDev[j].VCeis_R_Decode[i] +
+                    pBQDev[j].VCeis_I_Decode[i] * pBQDev[j].VCeis_I_Decode[i]);
+                float cs_mag = (float)sqrt(
+                    pBQDev[j_cs].CSeis_R_Decode[0] * pBQDev[j_cs].CSeis_R_Decode[0] +
+                    pBQDev[j_cs].CSeis_I_Decode[0] * pBQDev[j_cs].CSeis_I_Decode[0]);
+                if (out_P != NULL) out_P[out_idx] =  pBQDev[j].Zeis_P_Decode[i];
+                if (out_M != NULL) out_M[out_idx] =  pBQDev[j].Zeis_M_Decode[i];
+                if (out_MV != NULL) out_MV[out_idx] = vc_mag;
+                if (out_MI != NULL) out_MI[out_idx] = cs_mag;
+            }
             }
     }
 }
@@ -2231,8 +2484,7 @@ int8_t EISCompleteCheck(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, u
     // eis_dft_rdy: 0 = DFT 数据未就绪
 
 
-    if ((pBQDev->EisStat.fs.eis_dfe_run == 1) || 
-        (pBQDev->EisStat.fs.eis_dft_run == 1) ||
+    if ((pBQDev->EisStat.fs.eis_dft_run == 1) ||
         (pBQDev->EisStat.fs.eis_dft_rdy == 0))
     {
         return 0;
@@ -2283,13 +2535,17 @@ int8_t EIS_Config(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writetype)
     pBQDev->EisPwmCtrl12.fs.dc_shiftl = 0;
     WriteReg(bID_temp, BQ7982X_EIS_PWM_CTRL11_OFFSET, (pBQDev->EisPwmCtrl11.reg << 8) + pBQDev->EisPwmCtrl12.reg, 2, Writetype);
     
-    // BQ79826 PWM 载波 = 32 MHz / (PWM_DIVISOR + 128)。
-    // PWM_DIVISOR = 0x0380，因此载波为 32 MHz / 1024 = 31.25 kHz。
-    pBQDev->EisPwmCtrl13.fs.pwm_divisorh = 0x03;
-    pBQDev->EisPwmCtrl14.fs.pwm_divisorl = 0x80;
+    if (BQ7982X_IsC0Revision() != 0u) {
+        pBQDev->EisPwmCtrl13.fs.pwm_divisorh = 0x00;
+        pBQDev->EisPwmCtrl14.fs.pwm_divisorl = 0x00;
+    } else {
+        pBQDev->EisPwmCtrl13.fs.pwm_divisorh = 0x03;
+        pBQDev->EisPwmCtrl14.fs.pwm_divisorl = 0x80;
+    }
     WriteReg(bID_temp, BQ7982X_EIS_PWM_CTRL13_OFFSET, (pBQDev->EisPwmCtrl13.reg << 8) + pBQDev->EisPwmCtrl14.reg, 2, Writetype);    
     
     // 设置 PWM 工作模式：0b01 表示单音(Single Tone)模式，生成单一频率正弦波
+    pBQDev->EisPwmCtrl15.fs.eis_pwm_go = 0b0;
     pBQDev->EisPwmCtrl15.fs.eis_pwm_mode = 0b01; 
     WriteReg(bID_temp, BQ7982X_EIS_PWM_CTRL15_OFFSET, pBQDev->EisPwmCtrl15.reg, 1, Writetype);    
     
@@ -2300,8 +2556,13 @@ int8_t EIS_Config(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writetype)
     WriteReg(bID_temp, BQ7982X_EIS_DFE_CTRL1_OFFSET, (pBQDev->EisDfeCtrl1.reg << 8) + pBQDev->EisDfeCtrl2.reg, 2, Writetype);    
     
     // 配置电流通道(CS)前端放大器增益：设置为 5V/V (放大微弱的电流响应信号)
-    pBQDev->EisDfeCtrl3.fs.cs_amph = 0b10100000;
-    pBQDev->EisDfeCtrl4.fs.cs_ampl = 0;
+    if (BQ7982X_IsC0Revision() != 0u) {
+        pBQDev->EisDfeCtrl3.fs.cs_amph = 0x02;
+        pBQDev->EisDfeCtrl4.fs.cs_ampl = 0x80;
+    } else {
+        pBQDev->EisDfeCtrl3.fs.cs_amph = 0xA0;
+        pBQDev->EisDfeCtrl4.fs.cs_ampl = 0x00;
+    }
     WriteReg(bID_temp, BQ7982X_EIS_DFE_CTRL3_OFFSET, (pBQDev->EisDfeCtrl3.reg << 8) + pBQDev->EisDfeCtrl4.reg, 2, Writetype);   
     
     // 将之前在 EIS_Para_Calculation 中计算好的高通滤波器(HPF)系数写入硬件寄存器
@@ -2413,10 +2674,14 @@ int8_t EIS_PWM(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writetype)
 
     // 2. 配置并启动 PWM
     // eis_pwm_mode = 0b10: 配置 PWM 的输出模式，0b10 可能是内部正弦波/方波生成模式
-    pBQDev->EisPwmCtrl15.fs.eis_pwm_mode = 0b10;//0b01
+    pBQDev->EisPwmCtrl15.fs.eis_pwm_mode =
+        BQ7982X_IsC0Revision() != 0u ? 0b01 : 0b10;
     // eis_pwm_go = 1: 触发 PWM 开始输出激励信号
     pBQDev->EisPwmCtrl15.fs.eis_pwm_go = 0b1;
-    WriteReg(bID_temp, BQ7982X_EIS_PWM_CTRL15_OFFSET, pBQDev->EisPwmCtrl15.reg, 1, FRMWRT_SGL_W);   
+    if (BQ7982X_IsC0Revision() == 0u || TOTALBOARDS <= 1u) {
+        WriteReg(bID_temp, BQ7982X_EIS_PWM_CTRL15_OFFSET,
+                 pBQDev->EisPwmCtrl15.reg, 1, Writetype);
+    }
 
     // 3. 配置 ADC 通道
     // csadc_mode = 1: 启用电流采样 (CS) ADC 模式，使其开始采样反馈的交流电流信号
@@ -2499,6 +2764,9 @@ int8_t EIS_SMART_FREEZE(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, u
     uint8_t bID_temp  = 0;
     uint8_t rtn      = 0;
     uint8_t Writetype = 0;
+    uint16_t stat1_offset;
+    uint16_t ctrl1_offset;
+    uint16_t ctrl2_offset;
     if (Readtype == FRMWRT_SGL_R) {
         bID_temp  = BQID;
         Writetype = FRMWRT_SGL_W;
@@ -2509,20 +2777,34 @@ int8_t EIS_SMART_FREEZE(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, u
     } else {
         return -1;
     }
-    rtn = ReadReg(bID_temp, BQ7982X_SMART_FREEZE_STAT1_OFFSET, ReadBuf, 3, 0, Readtype);
+    if (BQ7982X_IsC0Revision() != 0u) {
+        stat1_offset = BQ7982X_SMART_FREEZE_STAT1_OFFSET;
+        ctrl1_offset = BQ7982X_SMART_FREEZE_CTRL1_OFFSET;
+        ctrl2_offset = BQ7982X_SMART_FREEZE_CTRL2_OFFSET;
+    } else {
+        stat1_offset = BQ7982X_LEGACY_SMART_FREEZE_STAT1_OFFSET;
+        ctrl1_offset = BQ7982X_LEGACY_SMART_FREEZE_CTRL1_OFFSET;
+        ctrl2_offset = BQ7982X_LEGACY_SMART_FREEZE_CTRL2_OFFSET;
+    }
+    rtn = ReadReg(bID_temp, stat1_offset, ReadBuf, 3, 0, Readtype);
     // Get Smart Freeze Status and adjust the Smart freeze Counter trigger accordingly
     pBQDev->SmartFreezeStat3.fs.slot_count = ReadBuf[6];
-    pBQDev->SmartFreezeCtrl1.fs.slot_sel = (pBQDev->SmartFreezeStat3.fs.slot_count) - 1;
+    pBQDev->SmartFreezeCtrl1.fs.slot_sel =
+        (uint8_t)(pBQDev->SmartFreezeStat3.fs.slot_count - 1u);
     // pBQDev->SmartFreezeCtrl1.fs.slot_sel = 0b01011011;//yan
-    WriteReg(bID_temp, BQ7982X_SMART_FREEZE_CTRL1_OFFSET, pBQDev->SmartFreezeCtrl1.reg, 1, Writetype);   
+    WriteReg(bID_temp, ctrl1_offset, pBQDev->SmartFreezeCtrl1.reg, 1, Writetype);
     pBQDev->SmartFreezeCtrl2.fs.sf_mode = 0b00;   
     pBQDev->SmartFreezeCtrl2.fs.sf_go = 0b1;
-    WriteReg(bID_temp, BQ7982X_SMART_FREEZE_CTRL2_OFFSET, pBQDev->SmartFreezeCtrl2.reg, 1, Writetype);   
+    WriteReg(bID_temp, ctrl2_offset, pBQDev->SmartFreezeCtrl2.reg, 1, Writetype);
     pBQDev->SmartFreezeCtrl2.fs.sf_go = 0b1;
     pBQDev->SmartFreezeCtrl2.fs.sf_mode = 0b10;    
-    WriteReg(bID_temp, BQ7982X_SMART_FREEZE_CTRL2_OFFSET, pBQDev->SmartFreezeCtrl2.reg, 1, Writetype);   
-    // pBQDev->EisDftCtrl4.fs.eis_dft_go = 0b1;// if smart freeze sf_mode has been 01 then no need eft go
-    // WriteReg(bID_temp, BQ7982X_EIS_DFT_CTRL4_OFFSET, pBQDev->EisDftCtrl4.reg, 1, Writetype);  
+    WriteReg(bID_temp, ctrl2_offset, pBQDev->SmartFreezeCtrl2.reg, 1, Writetype);
+#if (TOTALBOARDS <= 1)
+    pBQDev->EisDftCtrl4.fs.eis_dft_mode = 0b10;
+    pBQDev->EisDftCtrl4.fs.eis_dft_go = 0b1;
+    WriteReg(bID_temp, BQ7982X_EIS_DFT_CTRL4_OFFSET,
+             pBQDev->EisDftCtrl4.reg, 1, Writetype);
+#endif
        
     return rtn;
 }
@@ -2572,18 +2854,22 @@ int8_t Digital_Sync_counter(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writety
 {
     uint8_t bID_temp = 0;
     uint8_t rtn      = 0;
+    uint16_t ctrl_offset;
 
     if (Writetype == FRMWRT_SGL_W) {
         bID_temp = BQID;
     }
     // WriteReg(bID_temp, 0x101a, ？, 1, FRMWRT_ALL_W);
-    pBQDev->DigSyncCtrl6.fs.dig_sync_go = 0b1;
-    pBQDev->DigSyncCtrl6.fs.dig_sync_mode = 0b10;
-    pBQDev->DigSyncCtrl6.fs.dig_sync_wait = 0b1;
-    pBQDev->DigSyncCtrl6.fs.dig_sync_start = 0b1;
-    pBQDev->DigSyncCtrl6.fs.sync_adc_reset = 0b1;
-    WriteReg(bID_temp, 0x101A, 0x0F, 1, Writetype);      
-    WriteReg(bID_temp, BQ7982X_DIG_SYNC_CTRL6_OFFSET, pBQDev->DigSyncCtrl6.reg, 1, Writetype);      
+    pBQDev->DigSyncCtrl12.fs.dig_sync_go = 0b1;
+    pBQDev->DigSyncCtrl12.fs.dig_sync_mode = 0b10;
+    pBQDev->DigSyncCtrl12.fs.sync_adc_reset = 0b1;
+    pBQDev->DigSyncCtrl12.fs.dig_sync_wait = 0b1;
+    pBQDev->DigSyncCtrl12.fs.dig_sync_start = 0b1;
+    ctrl_offset = BQ7982X_IsC0Revision() != 0u ?
+                  BQ7982X_DIG_SYNC_CTRL12_OFFSET :
+                  BQ7982X_LEGACY_DIG_SYNC_CTRL6_OFFSET;
+    WriteReg(bID_temp, ctrl_offset, 0x2D, 1, Writetype);
+    DEVICE_DELAY_US(20000);
     return rtn;
     // End of Digital Synchronization Counter
 }
@@ -2609,9 +2895,18 @@ int8_t DigitalSyncEvery10ms(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBu
     uint8_t bID_temp  = 0;
     uint8_t rtn      = 0;
     uint8_t j;
+    uint8_t Writetype = 0;
+    uint16_t ctrl_offset;
     if (Readtype == FRMWRT_SGL_R) {
         bID_temp  = BQID;
-    } 
+        Writetype = FRMWRT_SGL_W;
+    } else if (Readtype == FRMWRT_STK_R) {
+        Writetype = FRMWRT_STK_W;
+    } else if (Readtype == FRMWRT_ALL_R) {
+        Writetype = FRMWRT_ALL_W;
+    } else {
+        return -1;
+    }
     rtn = ReadReg(bID_temp, BQ7982X_DIG_SYNC_STAT1_OFFSET, ReadBuf, 2, 0, Readtype);
     for (j = 0; j < TOTALBOARDS; j++) {
         pBQDev[j].sync_count = (ReadBuf[j * (2 + 6) + 4 ] << 8) | ReadBuf[j * (2 + 6) + 5 ];
@@ -2622,6 +2917,16 @@ int8_t DigitalSyncEvery10ms(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBu
         // sync_delta_count++;
     BQ7982x_Manual_Sync_Proc(bID_temp, pBQDev);
     rtn = ReadReg(0, BQ7982X_DEV_STAT2_OFFSET, ReadBuf, 1, 0, FRMWRT_SGL_R);
+    pBQDev->DigSyncCtrl12.fs.dig_sync_go = 0b1;
+    pBQDev->DigSyncCtrl12.fs.dig_sync_mode = 0b01;
+    pBQDev->DigSyncCtrl12.fs.sync_adc_reset = 0b0;
+    pBQDev->DigSyncCtrl12.fs.dig_sync_wait = 0b1;
+    pBQDev->DigSyncCtrl12.fs.dig_sync_start = 0b1;
+    ctrl_offset = BQ7982X_IsC0Revision() != 0u ?
+                  BQ7982X_DIG_SYNC_CTRL12_OFFSET :
+                  BQ7982X_LEGACY_DIG_SYNC_CTRL6_OFFSET;
+    WriteReg(bID_temp, ctrl_offset, 0x23, 1, Writetype);
+    DEVICE_DELAY_US(1000);
     return rtn;
     // ReadReg(0, BQ7982X_FAULT_SYS1_OFFSET, ReadBuf, 1, 0, FRMWRT_SGL_R);
 }
@@ -2653,7 +2958,7 @@ int8_t BQ7982x_Manual_Sync_Proc(uint8_t BQID, bq7982x_dev_t *pBQDev)
     static uint8_t init = 0;
     static int current_delta[TOTALBOARDS];
     static int prev_delta[TOTALBOARDS];
-    int8_t uRet;
+    int8_t uRet = 0;
     // Sign//
     // static int freq_adj_sign_prev[TOTALBOARDS];
     // static int freq_adj_sign_next[TOTALBOARDS];
@@ -2699,7 +3004,8 @@ int8_t BQ7982x_Manual_Sync_Proc(uint8_t BQID, bq7982x_dev_t *pBQDev)
             else
             {
                 current_delta[i] = current_delta[i];
-            }           
+            }
+            pBQDev[i].current_delta = current_delta[i];
         }
         // second_order_diff = current_delta - 2*prev_delta + prev_prev_delta;
         // Initialzation of delta zero
@@ -2740,7 +3046,7 @@ int8_t BQ7982x_Manual_Sync_Proc(uint8_t BQID, bq7982x_dev_t *pBQDev)
                            //reset
                            dig_sync_counter = 0;
                            init = 0;
-                           memset(&e_i, 0, sizeof(TOTALBOARDS));
+                           memset(e_i, 0, sizeof(e_i));
                             pBQDev->PllSyncCtrl2.fs.pll_sync_go = 0b1;
                             WriteReg(0, BQ7982X_PLL_SYNC_CTRL2_OFFSET, pBQDev->PllSyncCtrl2.reg, 1, FRMWRT_ALL_W);    
                             DEVICE_DELAY_US(3000);
@@ -2762,6 +3068,7 @@ int8_t BQ7982x_Manual_Sync_Proc(uint8_t BQID, bq7982x_dev_t *pBQDev)
                     pBQDev[i].HfoFreqCtrl1.fs.freq_adj = pBQDev[i].freq_adj;
                     pBQDev[i].HfoFreqCtrl2.fs.freq_go = 0b1;
                     WriteReg(i, BQ7982X_HFO_FREQ_CTRL1_OFFSET, (pBQDev[i].HfoFreqCtrl1.reg << 8) + pBQDev[i].HfoFreqCtrl2.reg, 2, FRMWRT_SGL_W); 
+                    uRet = (int8_t)freq_adj[i];
                 }
                 else
                 {
@@ -2779,7 +3086,6 @@ int8_t BQ7982x_Manual_Sync_Proc(uint8_t BQID, bq7982x_dev_t *pBQDev)
     }
     // pause = 0; //no API
     // Variable stop
-    uRet = (int8_t)freq_adj[i];
     return uRet;
 }
 
@@ -2792,6 +3098,80 @@ int8_t BQ7982x_Manual_Sync_Proc(uint8_t BQID, bq7982x_dev_t *pBQDev)
  * @param pBQDev BQ 设备结构体 (BQ Device structure)
  * @return int8_t 0 (成功)
  */
+#define STABLE_WIN_HALF 100u
+#define STABLE_WIN_TOTAL (STABLE_WIN_HALF * 2u)
+#define STABLE_MEAN_LIMIT 4
+
+uint8_t AFE_Check_AllStable(bq7982x_dev_t *pBQDev)
+{
+    static int delta_buf[TOTALBOARDS][STABLE_WIN_TOTAL];
+    static uint16_t buf_idx[TOTALBOARDS];
+    static int sum_front[TOTALBOARDS];
+    static int sum_back[TOTALBOARDS];
+    static uint8_t buf_full = 0u;
+    static uint16_t dig_sync_counter_stable = 0u;
+    uint8_t BQID;
+
+    if (pBQDev == NULL) {
+        return 0u;
+    }
+    if (TOTALBOARDS <= 1u) {
+        return 1u;
+    }
+
+    for (BQID = 1u; BQID < TOTALBOARDS; BQID++) {
+        int new_val = pBQDev[BQID].current_delta;
+        int old_val = delta_buf[BQID][buf_idx[BQID]];
+
+        delta_buf[BQID][buf_idx[BQID]] = new_val;
+        if (buf_idx[BQID] < STABLE_WIN_HALF) {
+            sum_front[BQID] = sum_front[BQID] - old_val + new_val;
+        } else {
+            sum_back[BQID] = sum_back[BQID] - old_val + new_val;
+        }
+
+        buf_idx[BQID] = (uint16_t)((buf_idx[BQID] + 1u) % STABLE_WIN_TOTAL);
+        if (buf_idx[BQID] == (STABLE_WIN_TOTAL - 1u)) {
+            buf_full = 1u;
+        }
+    }
+
+    dig_sync_counter_stable++;
+    if (buf_full == 0u) {
+        return 0u;
+    }
+
+    for (BQID = 1u; BQID < TOTALBOARDS; BQID++) {
+        int mean1 = sum_front[BQID] / (int)STABLE_WIN_HALF;
+        int mean2 = sum_back[BQID] / (int)STABLE_WIN_HALF;
+        int diff = mean1 - mean2;
+
+        if (diff < 0) {
+            diff = -diff;
+        }
+
+        if (diff > STABLE_MEAN_LIMIT) {
+            if (dig_sync_counter_stable > 500u) {
+                BQ7982X_ConfigDigitalSync(pBQDev);
+                PLL_Sync(0, pBQDev, FRMWRT_ALL_W);
+                Digital_Sync_counter(0, pBQDev, FRMWRT_ALL_W);
+                dig_sync_counter_stable = 0u;
+                buf_full = 0u;
+                memset(delta_buf, 0, sizeof(delta_buf));
+                memset(buf_idx, 0, sizeof(buf_idx));
+                memset(sum_front, 0, sizeof(sum_front));
+                memset(sum_back, 0, sizeof(sum_back));
+            }
+            return 0u;
+        }
+    }
+
+    if (dig_sync_counter_stable > 1u) {
+        dig_sync_counter_stable--;
+    }
+    return 1u;
+}
+
 int8_t NVM_Register_Configuration(uint8_t BQID, bq7982x_dev_t *pBQDev)
 {
     uint8_t bID_temp = 0;
@@ -2814,7 +3194,7 @@ int8_t NVM_Register_Configuration(uint8_t BQID, bq7982x_dev_t *pBQDev)
     for (j = 0; j < TOTALBOARDS; j++) {
         bID_temp = j;
         pBQDev[j].DevConf1.fs.nfault_en = 0b1;
-        pBQDev[j].DevConf2.fs.num_cell = BQ7982X_NUM_CELL_CFG;
+        pBQDev[j].DevConf2.fs.num_cell = (uint8_t)(BQ7982X_GetActiveCellCount() - 1u);
         pBQDev[j].DevConf3.reg = 0x00;
         if(j == 0)pBQDev[j].DevConf3.fs.crystal_en = 0b1;
         else pBQDev[j].DevConf3.fs.crystal_en = 0b0;
@@ -2825,15 +3205,28 @@ int8_t NVM_Register_Configuration(uint8_t BQID, bq7982x_dev_t *pBQDev)
         pBQDev[j].GpioConf1.reg = 0x00;
         pBQDev[j].GpioConf2.reg = 0x00;
         pBQDev[j].GpioConf3.reg = 0x00;
+        pBQDev[j].GpioConf4.reg = 0x00;
+        pBQDev[j].GpioConf5.reg = 0x00;
         pBQDev[j].GpioConf4.fs.eis_pwm_en = 0b1;
+        if (BQ7982X_IsC0Revision() != 0u) {
+            pBQDev[j].GpioConf5.fs.gpio9 = 0b100;
+            pBQDev[j].GpioConf5.fs.gpio10 = 0b100;
+        }
         // pBQDev[j].GpioConf5.fs.spare = 0b1;
         WriteReg(bID_temp, BQ7982X_GPIO_CONF1_OFFSET, ((uint64_t)pBQDev[j].GpioConf1.reg << 32) + ((uint64_t)pBQDev[j].GpioConf2.reg << 24) + ((uint64_t)pBQDev[j].GpioConf3.reg << 16)
                  + (uint64_t)(pBQDev[j].GpioConf4.reg << 8) + pBQDev[j].GpioConf5.reg, 5, FRMWRT_SGL_W); 
-        pBQDev[j].GpioConf6.fs.gpio12 = 0b101;//0b101 = ADC input (absolute) and weak pull-up.
+        pBQDev[j].GpioConf6.reg = 0x00;
         pBQDev[j].GpioConf7.reg = 0x00;
         pBQDev[j].GpioConf8.reg = 0x00;
-        pBQDev[j].GpioConf9.fs.gpio18 = 0b001;//0b001 = ADC and OTUT inputs (ratiometric).
+        pBQDev[j].GpioConf9.reg = 0x00;
         pBQDev[j].GpioConf10.reg = 0x00;
+        if (BQ7982X_IsC0Revision() != 0u) {
+            pBQDev[j].GpioConf6.fs.gpio11 = 0b100;
+            pBQDev[j].GpioConf6.fs.gpio12 = 0b010;
+        } else {
+            pBQDev[j].GpioConf6.fs.gpio12 = 0b101;
+            pBQDev[j].GpioConf9.fs.gpio18 = 0b001;
+        }
         WriteReg(bID_temp, BQ7982X_GPIO_CONF6_OFFSET, ((uint64_t)pBQDev[j].GpioConf6.reg << 32) + ((uint64_t)pBQDev[j].GpioConf7.reg << 24) + ((uint64_t)pBQDev[j].GpioConf8.reg << 16)
                  + ((uint64_t)pBQDev[j].GpioConf9.reg << 8) + pBQDev[j].GpioConf10.reg, 5, FRMWRT_SGL_W); 
     }
@@ -2884,8 +3277,14 @@ int8_t NVM_Register_Configuration(uint8_t BQID, bq7982x_dev_t *pBQDev)
     // pBQDev->EisComCtrl19.reg = 0x00;
     // WriteReg(bID_temp, BQ7982X_EIS_COM_CTRL17_OFFSET, 0x000000, 3, FRMWRT_ALL_W); 
     pBQDev->EisDfeCtrl1.fs.vc_amph = 0b10100000;
-    pBQDev->EisDfeCtrl3.fs.cs_amph = 0b10100000;
-    WriteReg(bID_temp, BQ7982X_EIS_DFE_CTRL1_OFFSET, ((uint64_t)pBQDev->EisDfeCtrl1.reg << 56) + ((uint64_t)pBQDev->EisDfeCtrl3.reg << 40) + 0x0000000000000000, 8, FRMWRT_ALL_W);    
+    if (BQ7982X_IsC0Revision() != 0u) {
+        pBQDev->EisDfeCtrl3.fs.cs_amph = 0x02;
+        pBQDev->EisDfeCtrl4.fs.cs_ampl = 0x80;
+    } else {
+        pBQDev->EisDfeCtrl3.fs.cs_amph = 0xA0;
+        pBQDev->EisDfeCtrl4.fs.cs_ampl = 0x00;
+    }
+    WriteReg(bID_temp, BQ7982X_EIS_DFE_CTRL1_OFFSET, ((uint64_t)pBQDev->EisDfeCtrl1.reg << 56) + ((uint64_t)pBQDev->EisDfeCtrl3.reg << 40) + ((uint64_t)pBQDev->EisDfeCtrl4.reg << 32) + 0x0000000000000000, 8, FRMWRT_ALL_W);
     WriteReg(bID_temp, BQ7982X_EIS_DFE_CTRL9_OFFSET, 0x0000000000000000, 8, FRMWRT_ALL_W);    
     WriteReg(bID_temp, BQ7982X_EIS_DFE_CTRL17_OFFSET, 0x0000000000000000, 8, FRMWRT_ALL_W);    
     pBQDev->EisDfeCtrl25.fs.cs_dcc_dcl = 0;
@@ -2897,8 +3296,10 @@ int8_t NVM_Register_Configuration(uint8_t BQID, bq7982x_dev_t *pBQDev)
     pBQDev->EisDftCtrl4.fs.eis_dft_mode = 0b10;
     WriteReg(bID_temp, BQ7982X_EIS_DFT_CTRL1_OFFSET, ((uint32_t)pBQDev->EisDftCtrl1.reg << 24) + ((uint32_t)pBQDev->EisDftCtrl2.reg << 16) + ((uint32_t)pBQDev->EisDftCtrl3.reg << 8) + pBQDev->EisDftCtrl4.reg, 4, FRMWRT_ALL_W);   
     WriteReg(bID_temp, BQ7982X_EIS_PWM_CTRL1_OFFSET, 0x0000000000000000, 8, FRMWRT_ALL_W);  
-    pBQDev->EisPwmCtrl15.fs.eis_pwm_mode = 0b10;
-    WriteReg(bID_temp, BQ7982X_EIS_PWM_CTRL9_OFFSET, 0x00000000000000 + pBQDev->EisPwmCtrl15.reg, 7, FRMWRT_ALL_W);    
+    pBQDev->EisPwmCtrl15.fs.eis_pwm_mode =
+        BQ7982X_IsC0Revision() != 0u ? 0b01 : 0b10;
+    pBQDev->EisPwmCtrl15.fs.eis_pwm_go = 0b0;
+    WriteReg(0, BQ7982X_EIS_PWM_CTRL9_OFFSET, 0x00000000000000 + pBQDev->EisPwmCtrl15.reg, 7, FRMWRT_SGL_W);
     pBQDev->EisMiscCtrl.fs.eis_res_sel = 0;    //real portion
     pBQDev->EisMiscCtrl.fs.eis_res_tone = 0;    //tone1 result
     WriteReg(bID_temp, BQ7982X_EIS_MISC_CTRL_OFFSET, pBQDev->EisMiscCtrl.reg, 1, FRMWRT_ALL_W);
@@ -2919,20 +3320,7 @@ int8_t NVM_Register_Configuration(uint8_t BQID, bq7982x_dev_t *pBQDev)
         pBQDev[j].PllSyncCtrl1.fs.pll_sync_dir = 0b1;
         WriteReg(bID_temp, BQ7982X_PLL_SYNC_CTRL1_OFFSET, pBQDev[j].PllSyncCtrl1.reg, 1, FRMWRT_SGL_W);      
     }
-    pBQDev->DigSyncConf1.fs.addrh = 0b00000010;
-    pBQDev->DigSyncConf2.fs.addrl = 0b00110001;
-    WriteReg(bID_temp, BQ7982X_DIG_SYNC_CONF1_OFFSET, (pBQDev->DigSyncConf1.reg << 8) + pBQDev->DigSyncConf2.reg, 2, FRMWRT_ALL_W);   
-    pBQDev->DigSyncCtrl3.fs.sync_dev_mode = 0b10;
-    pBQDev->DigSyncCtrl3.fs.sync_dev_go = 0b1;
-    WriteReg(0, BQ7982X_DIG_SYNC_CTRL3_OFFSET, ((uint32_t)pBQDev->DigSyncCtrl3.reg<<24) + 0x00000000, 4, FRMWRT_SGL_W);              
-    for (j = 1; j < TOTALBOARDS; j++) {
-        bID_temp = j;
-        pBQDev[j].DigSyncCtrl3.fs.sync_dev_frame = 0b1;
-        pBQDev[j].DigSyncCtrl3.fs.sync_dev_dir = 0b1;
-        pBQDev[j].DigSyncCtrl3.fs.sync_dev_mode = 0b01;
-        pBQDev[j].DigSyncCtrl3.fs.sync_dev_go = 0b1;
-        WriteReg(bID_temp, BQ7982X_DIG_SYNC_CTRL3_OFFSET, ((uint32_t)pBQDev[j].DigSyncCtrl3.reg<<24) + 0x00000000, 4, FRMWRT_SGL_W);      
-    }    
+    BQ7982X_ConfigDigitalSync(pBQDev);
     pBQDev->SmartFreezeConf.fs.slot_len = 0b10;//128 ADC measurement slots
     pBQDev->SmartFreezeConf.fs.samp_len = 0b111;//8192 us
     WriteReg(bID_temp, BQ7982X_SMART_FREEZE_CONF_OFFSET, pBQDev->SmartFreezeConf.reg, 1, FRMWRT_ALL_W); 
@@ -2995,7 +3383,9 @@ void EIS_Para_Calculation(uint8_t BQID, bq7982x_dev_t *pBQDev, float eis_frequen
     
     // 6. 计算滤波器和 DFT 的等待时间
     // 数字前端滤波器稳定时间：5 个时间常数，且最少 2 秒 (保持单位为秒)
-    float dfe_wait_time = roundf(1 / hpf_corner * 5);
+    float dfe_wait_time = roundf(
+                              1 / hpf_corner *
+                              (BQ7982X_IsC0Revision() != 0u ? 1.0f : 5.0f));
     dfe_wait_time = (dfe_wait_time > 2)? dfe_wait_time:2;
     
     // DFT 收集足够数据所需的时间 (保持单位为秒)

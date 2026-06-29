@@ -282,10 +282,19 @@ typedef struct {
     pll_sync_ctrl1_t PllSyncCtrl1;          // PLL 同步控制1
     pll_sync_ctrl2_t PllSyncCtrl2;          // PLL 同步控制2
 
+    dig_sync_ctrl1_t DigSyncCtrl1;          // 数字同步控制1
+    dig_sync_ctrl2_t DigSyncCtrl2;          // 数字同步控制2
     dig_sync_ctrl3_t DigSyncCtrl3;          // 数字同步控制3
     dig_sync_ctrl4_t DigSyncCtrl4;          // 数字同步控制4
     dig_sync_ctrl5_t DigSyncCtrl5;          // 数字同步控制5
     dig_sync_ctrl6_t DigSyncCtrl6;          // 数字同步控制6
+    dig_sync_ctrl7_t DigSyncCtrl7;          // 数字同步控制7
+    dig_sync_ctrl8_t DigSyncCtrl8;          // 数字同步控制8
+    dig_sync_ctrl9_t DigSyncCtrl9;          // 数字同步控制9
+    dig_sync_ctrl10_t DigSyncCtrl10;        // 数字同步控制10
+    dig_sync_ctrl11_t DigSyncCtrl11;        // 数字同步控制11
+    dig_sync_ctrl12_t DigSyncCtrl12;        // 数字同步控制12
+    dig_sync_ctrl13_t DigSyncCtrl13;        // 数字同步控制13
 
     comm_conf1_t CommConf1;                 // 通信配置1 (如设备群组配置)
 
@@ -318,6 +327,7 @@ typedef struct {
     // ----------------------------------------------------
     uint16_t sync_count;         // 同步计数器 (Sync Counter)
     uint8_t freq_adj;            // 频率调整值 (Frequency Adjustment)
+    int current_delta;           // 同步计数差值 (Current Delta)
     uint32_t dft_len_struct;     // DFT计算长度 (Discrete Fourier Transform Length)
     uint32_t dfe_wait_time;      // DFE(数字前端)滤波器等待稳定时间 (DFE Wait Time)
     uint32_t freq_indxn;         // 当前扫描的频率索引 (Frequency Index for Multi-frequency Scan)

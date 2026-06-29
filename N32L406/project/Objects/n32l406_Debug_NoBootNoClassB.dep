@@ -38,8 +38,8 @@ I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
-F (..\code\user\main.c)(0x6A3CD68A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/main.o -MD)
-I (..\code\user\main.h)(0x6A3CD68F)
+F (..\code\user\main.c)(0x6A42309D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/main.o -MD)
+I (..\code\user\main.h)(0x6A421647)
 I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
 I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
@@ -76,17 +76,17 @@ I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
-I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_DATA_TYPES.h)(0x69D4B4E3)
-I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS_TYPES.h)(0x69C0D873)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_DATA_TYPES.h)(0x6A422E06)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS_TYPES.h)(0x6A422E00)
 I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X.h)(0x6A310C23)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x694377FF)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x6A42300B)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6035A4A8)
 I (..\code\user\ProjectConfig.h)(0x69B81003)
 I (..\code\user\BMS_DEF.h)(0x69AA8CE9)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6035A4A8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035A4A8)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_app.h)(0x6A3CD69D)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_app.h)(0x6A423014)
 I (..\..\CubeCommon\L1_MSP\MSP_GPIO.h)(0x69B3E661)
 I (..\..\CubeCommon\L1_MSP\MSP_SPI.h)(0x6A3B9AE6)
 I (..\..\CubeCommon\L1_MSP\MSP_UART.h)(0x6A180A3F)
@@ -134,7 +134,7 @@ I (..\..\CubeCommon\L1_MSP\MSP_GPIO.h)(0x69B3E661)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6035A4A8)
 F (..\code\user\ProjectConfig.h)(0x69B81003)()
 F (..\code\user\BMS_DEF.h)(0x69AA8CE9)()
-F (..\code\user\main.h)(0x6A3CD68F)()
+F (..\code\user\main.h)(0x6A421647)()
 F (..\code\L0_SDK\src\misc.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/misc.o -MD)
 I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
 I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
@@ -1105,11 +1105,11 @@ I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
 I (..\code\user\ProjectConfig.h)(0x69B81003)
 I (..\code\user\BMS_DEF.h)(0x69AA8CE9)
 F (..\..\CubeCommon\L1_MSP\MSP_GPIO.h)(0x69B3E661)()
-F (..\..\CubeCommon\L1_MSP\MSP_IT.c)(0x6A3CD696)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/msp_it.o -MD)
+F (..\..\CubeCommon\L1_MSP\MSP_IT.c)(0x6A422E35)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/msp_it.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6035A4A8)
-I (..\code\user\main.h)(0x6A3CD68F)
+I (..\code\user\main.h)(0x6A421647)
 I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
 I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
 I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
@@ -1145,10 +1145,10 @@ I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
-I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_DATA_TYPES.h)(0x69D4B4E3)
-I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS_TYPES.h)(0x69C0D873)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_DATA_TYPES.h)(0x6A422E06)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS_TYPES.h)(0x6A422E00)
 I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X.h)(0x6A310C23)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x694377FF)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x6A42300B)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6035A4A8)
 I (..\code\user\ProjectConfig.h)(0x69B81003)
 I (..\code\user\BMS_DEF.h)(0x69AA8CE9)
@@ -1239,10 +1239,10 @@ F (..\..\CubeCommon\L1_MSP\MSP_UART.h)(0x6A180A3F)()
 F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X.c)(0x6A3B9AE7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/bsp_bq7982x.o -MD)
 I (..\..\CubeCommon\L2_BSP\bsp_bq7982x.h)(0x6A310C23)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x694377FF)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs_types.h)(0x69C0D873)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x6A42300B)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs_types.h)(0x6A422E00)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_data_types.h)(0x69D4B4E3)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_data_types.h)(0x6A422E06)
 I (..\..\CubeCommon\L1_MSP\MSP_GPIO.h)(0x69B3E661)
 I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
 I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
@@ -1280,23 +1280,23 @@ I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
 I (..\..\CubeCommon\L1_MSP\MSP_SPI.h)(0x6A3B9AE6)
-I (..\code\user\main.h)(0x6A3CD68F)
+I (..\code\user\main.h)(0x6A421647)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6035A4A8)
 I (..\code\user\ProjectConfig.h)(0x69B81003)
 I (..\code\user\BMS_DEF.h)(0x69AA8CE9)
 F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X.h)(0x6A310C23)()
-F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_APP.c)(0x6A3CD6B8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/bsp_bq7982x_app.o -MD)
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_APP.c)(0x6A4238B0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/bsp_bq7982x_app.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035A4A8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6035A4A8)
 I (..\..\CubeCommon\L2_BSP\bsp_bq7982x.h)(0x6A310C23)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x694377FF)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs_types.h)(0x69C0D873)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x6A42300B)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs_types.h)(0x6A422E00)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_data_types.h)(0x69D4B4E3)
-I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_app.h)(0x6A3CD69D)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_data_types.h)(0x6A422E06)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_app.h)(0x6A423014)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6035A4A8)
-I (..\code\user\main.h)(0x6A3CD68F)
+I (..\code\user\main.h)(0x6A421647)
 I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
 I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
 I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
@@ -1333,10 +1333,10 @@ I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
 I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
 I (..\..\CubeCommon\L1_MSP\MSP_SPI.h)(0x6A3B9AE6)
-F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_APP.h)(0x6A3CD69D)()
-F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_DATA_TYPES.h)(0x69D4B4E3)()
-F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS.h)(0x694377FF)()
-F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS_TYPES.h)(0x69C0D873)()
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_APP.h)(0x6A423014)()
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_DATA_TYPES.h)(0x6A422E06)()
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS.h)(0x6A42300B)()
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS_TYPES.h)(0x6A422E00)()
 F (..\..\CubeCommon\TOOL\lwrb.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/lwrb.o -MD)
 I (..\..\CubeCommon\TOOL\lwrb.h)(0x69A7EBAC)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)

@@ -1331,41 +1331,111 @@ typedef union {
 
 typedef union {
     struct {
-        uint8_t sync_dev_go : 1; 
-        uint8_t sync_dev_mode : 2; 
-        uint8_t sync_dev_dir : 1; 
-        uint8_t sync_dev_frame : 1; 
-        uint8_t freeze_count_en : 1; 
-        uint8_t rsvd : 2;
+        uint8_t gain1h : 8;
+    } fs;
+    uint8_t reg;
+}dig_sync_ctrl1_t;
+
+typedef union {
+    struct {
+        uint8_t gain1l : 8;
+    } fs;
+    uint8_t reg;
+}dig_sync_ctrl2_t;
+
+typedef union {
+    struct {
+        uint8_t phase_offseth : 8;
     } fs;
     uint8_t reg;
 }dig_sync_ctrl3_t;
 
 typedef union {
     struct {
-        uint8_t ref_counth : 8; 
+        uint8_t phase_offsetl : 8;
     } fs;
     uint8_t reg;
 }dig_sync_ctrl4_t;
 
 typedef union {
     struct {
-        uint8_t ref_countl : 8; 
+        uint8_t gain2h : 8;
     } fs;
     uint8_t reg;
 }dig_sync_ctrl5_t;
 
 typedef union {
     struct {
-        uint8_t dig_sync_go : 1; 
-        uint8_t dig_sync_mode : 2; 
-        uint8_t sync_adc_reset : 1; 
-        uint8_t dig_sync_wait : 1; 
-        uint8_t dig_sync_start : 1; 
-        uint8_t rsvd : 2;
+        uint8_t gain2l : 8;
     } fs;
     uint8_t reg;
 }dig_sync_ctrl6_t;
+
+typedef union {
+    struct {
+        uint8_t gain3h : 8;
+    } fs;
+    uint8_t reg;
+}dig_sync_ctrl7_t;
+
+typedef union {
+    struct {
+        uint8_t gain3l : 8;
+    } fs;
+    uint8_t reg;
+}dig_sync_ctrl8_t;
+
+typedef union {
+    struct {
+        uint8_t sync_dev_go : 1;
+        uint8_t sync_dev_mode : 2;
+        uint8_t sync_dev_dir : 1;
+        uint8_t sync_dev_frame : 1;
+        uint8_t freeze_count_en : 1;
+        uint8_t sync_gpio_en : 1;
+        uint8_t sync_gpio_dev : 1;
+    } fs;
+    uint8_t reg;
+}dig_sync_ctrl9_t;
+
+typedef union {
+    struct {
+        uint8_t ref_counth : 8;
+    } fs;
+    uint8_t reg;
+}dig_sync_ctrl10_t;
+
+typedef union {
+    struct {
+        uint8_t ref_countl : 8;
+    } fs;
+    uint8_t reg;
+}dig_sync_ctrl11_t;
+
+typedef union {
+    struct {
+        uint8_t dig_sync_go : 1;
+        uint8_t dig_sync_mode : 2;
+        uint8_t sync_adc_reset : 1;
+        uint8_t dig_sync_wait : 1;
+        uint8_t dig_sync_start : 1;
+        uint8_t sync_dft_start : 1;
+        uint8_t rsvd : 1;
+    } fs;
+    uint8_t reg;
+}dig_sync_ctrl12_t;
+
+typedef union {
+    struct {
+        uint8_t sync_gpio_go : 1;
+        uint8_t sync_gpio_sel : 1;
+        uint8_t sync_gpio_rst : 1;
+        uint8_t sync_gpio_to : 3;
+        uint8_t freeze_dft_en : 1;
+        uint8_t rsvd : 1;
+    } fs;
+    uint8_t reg;
+}dig_sync_ctrl13_t;
 
 typedef union {
     struct {

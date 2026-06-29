@@ -130,13 +130,25 @@ int8_t VcOpnWrUpdate(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf,
 //  */
 void PWM_CRYSTAL(bq7982x_dev_t *pBQDev, uint8_t *ReadBuf);
 uint8_t CheckSyncStatus(bq7982x_dev_t *pBQDev);
+uint8_t AFE_Check_AllStable(bq7982x_dev_t *pBQDev);
+uint8_t BQ7982X_NormalizeCellCount(uint8_t cell_count);
+uint8_t BQ7982X_SetActiveCellCount(uint8_t cell_count);
+uint8_t BQ7982X_GetActiveCellCount(void);
+int8_t BQ7982X_ApplyActiveCellCount(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writetype);
+int8_t BQ7982X_ReadActiveCellCount(uint8_t BQID, uint8_t *ReadBuf, uint8_t *cell_count);
+int8_t BQ7982X_VerifyActiveCellCount(uint8_t BQID, uint8_t *ReadBuf);
+int8_t BQ7982X_DetectSiliconRevision(uint8_t BQID, uint8_t *ReadBuf);
+uint8_t BQ7982X_GetPartId(void);
+uint8_t BQ7982X_GetTapeoutRevision(void);
+uint8_t BQ7982X_IsC0Revision(void);
 int8_t BQ7982x_Manual_Sync_Proc(uint8_t BQID, bq7982x_dev_t *pBQDev);
 int8_t Digital_Sync_counter(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writetype);
 int8_t PLL_Sync(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writetype);
 int8_t EIS_SMART_FREEZE(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, uint8_t Readtype);
 int8_t Read_EIS_CV(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, uint8_t Readtype);
+int8_t Read_EIS_CV_I(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, uint8_t Readtype);
 int8_t Read_EIS_CC(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, uint8_t Readtype);
-void EIS_Z_Cal(bq7982x_dev_t *pBQDev, float* out_P, float* out_M);
+void EIS_Z_Cal(bq7982x_dev_t *pBQDev, float* out_P, float* out_M, float* out_MV, float* out_MI);
 int8_t EISCompleteCheck(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t *ReadBuf, uint8_t Readtype);
 int8_t EIS_Config(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writetype);
 int8_t EIS_PWM(uint8_t BQID, bq7982x_dev_t *pBQDev, uint8_t Writetype);

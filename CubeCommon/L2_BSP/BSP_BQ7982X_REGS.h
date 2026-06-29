@@ -1619,10 +1619,40 @@ extern "C"
 #define BQ7982X_MSK_DIG_SYNC_CTRL6_DIG_SYNC_MODE         (0x06u)
 #define BQ7982X_MSK_DIG_SYNC_CTRL6_DIG_SYNC_GO           (0x01u)
 
+/* DIG_SYNC_CTRL7/8: GAIN3 high/low bytes. */
+#define BQ7982X_DIG_SYNC_CTRL7_OFFSET                    (0x0234u)
+#define BQ7982X_DIG_SYNC_CTRL8_OFFSET                    (0x0235u)
+
+/* --------------------------------------------------------------------------
+ * DIG_SYNC_CTRL9           (R/W):
+ * -------------------------------------------------------------------------- */
+#define BQ7982X_DIG_SYNC_CTRL9_OFFSET                    (0x0236u)
+#define BQ7982X_DIG_SYNC_CTRL9_POR_VAL                   (0x00u)
+
+/* DIG_SYNC_CTRL10/11: reference count high/low bytes. */
+#define BQ7982X_DIG_SYNC_CTRL10_OFFSET                   (0x0237u)
+#define BQ7982X_DIG_SYNC_CTRL11_OFFSET                   (0x0238u)
+
+/* --------------------------------------------------------------------------
+ * DIG_SYNC_CTRL12          (R/W):
+ * -------------------------------------------------------------------------- */
+#define BQ7982X_DIG_SYNC_CTRL12_OFFSET                   (0x0239u)
+#define BQ7982X_DIG_SYNC_CTRL12_POR_VAL                  (0x00u)
+
+/* DIG_SYNC_CTRL13: GPIO synchronization and DFT freeze control. */
+#define BQ7982X_DIG_SYNC_CTRL13_OFFSET                   (0x023Au)
+
+/* Pre-C0 register aliases retained for automatic silicon compatibility. */
+#define BQ7982X_LEGACY_DIG_SYNC_CTRL3_OFFSET             (0x0230u)
+#define BQ7982X_LEGACY_DIG_SYNC_CTRL6_OFFSET             (0x0233u)
+#define BQ7982X_LEGACY_SMART_FREEZE_CTRL1_OFFSET         (0x0236u)
+#define BQ7982X_LEGACY_SMART_FREEZE_CTRL2_OFFSET         (0x0237u)
+#define BQ7982X_LEGACY_SMART_FREEZE_STAT1_OFFSET         (0x0786u)
+
 /* --------------------------------------------------------------------------
  * SMART_FREEZE_CTRL1           (R/W):
  * -------------------------------------------------------------------------- */
-#define BQ7982X_SMART_FREEZE_CTRL1_OFFSET                    (0x0236u)
+#define BQ7982X_SMART_FREEZE_CTRL1_OFFSET                    (0x023Cu)
 #define BQ7982X_SMART_FREEZE_CTRL1_POR_VAL                   (0x00u)
 
 #define BQ7982X_POS_SMART_FREEZE_CTRL1_SLOT_SEL              (0x00u)
@@ -1632,7 +1662,7 @@ extern "C"
 /* --------------------------------------------------------------------------
  * SMART_FREEZE_CTRL2           (R/W):
  * -------------------------------------------------------------------------- */
-#define BQ7982X_SMART_FREEZE_CTRL2_OFFSET                    (0x0237u)
+#define BQ7982X_SMART_FREEZE_CTRL2_OFFSET                    (0x023Du)
 #define BQ7982X_SMART_FREEZE_CTRL2_POR_VAL                   (0x00u)
 
 #define BQ7982X_POS_SMART_FREEZE_CTRL2_SF_MODE               (0x01u)
@@ -5265,7 +5295,7 @@ extern "C"
 /* --------------------------------------------------------------------------
  * SMART_FREEZE_STAT1     (RP):
  * -------------------------------------------------------------------------- */
-#define BQ7982X_SMART_FREEZE_STAT1_OFFSET    (0x0786u)
+#define BQ7982X_SMART_FREEZE_STAT1_OFFSET    (0x078Bu)
 #define BQ7982X_SMART_FREEZE_STAT1_POR_VAL   (0x00u)
 
 #define BQ7982X_POS_SMART_FREEZE_STAT1_SAMP_COUNTH   (0x00u)
@@ -5274,7 +5304,7 @@ extern "C"
 /* --------------------------------------------------------------------------
  * SMART_FREEZE_STAT2     (RS):
  * -------------------------------------------------------------------------- */
-#define BQ7982X_SMART_FREEZE_STAT2_OFFSET    (0x0787u)
+#define BQ7982X_SMART_FREEZE_STAT2_OFFSET    (0x078Cu)
 #define BQ7982X_SMART_FREEZE_STAT2_POR_VAL   (0x00u)
 
 #define BQ7982X_POS_SMART_FREEZE_STAT2_SAMP_COUNTL   (0x00u)
@@ -5283,7 +5313,7 @@ extern "C"
 /* --------------------------------------------------------------------------
  * SMART_FREEZE_STAT3     (RS):
  * -------------------------------------------------------------------------- */
-#define BQ7982X_SMART_FREEZE_STAT3_OFFSET    (0x0788u)
+#define BQ7982X_SMART_FREEZE_STAT3_OFFSET    (0x078Du)
 #define BQ7982X_SMART_FREEZE_STAT3_POR_VAL   (0x00u)
 
 #define BQ7982X_POS_SMART_FREEZE_STAT3_SLOT_COUNT   (0x00u)

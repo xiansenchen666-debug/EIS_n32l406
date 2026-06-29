@@ -57,14 +57,19 @@ extern volatile bool gTaskSetEisFreq;
 extern volatile bool gTaskWakeStackQuery;
 extern volatile bool gTaskBqResetQuery;
 extern volatile bool gTaskBqSleepQuery;
+extern volatile bool gTaskSetEisCellCount;
+extern volatile bool gTaskReportStatus;
 extern volatile float32_t gEisRequestedFreq;
 extern volatile uint8_t gEisConfigOverride;
 extern volatile uint32_t gEisRequestedDftLength;
 extern volatile float32_t gEisRequestedHpfHz;
 extern volatile uint8_t gEisRequestedDsr;
+extern volatile uint8_t gEisRequestedCellCount;
+extern volatile uint8_t gEisCellCount;
 //
 ///* 状态标志 */
 extern volatile uint8_t eis_run_flag;
+extern volatile uint8_t digital_sync_flag;
 //
 ///* BQ7982x 设备实例 */
 extern bq7982x_dev_t gBQDev[TOTALBOARDS];

@@ -76,7 +76,7 @@ void systick_init(void)
 /* USART1 中断服务函数 */
 void USART2_IRQHandler(void)
 {
-    static char rx_buf[64];
+    static char rx_buf[96];
     static uint8_t rx_idx = 0;
 
     if (USART_GetIntStatus(USART2, USART_INT_RXDNE) != RESET)
@@ -112,6 +112,29 @@ void USART2_IRQHandler(void)
                 else if (strncmp(rx_buf, "STOP_EIS", 8) == 0)
                 {
                     gTaskStopEisQuery = true;
+                }
+                else if (strcmp(rx_buf, "GET_STATUS") == 0)
+                {
+                    gTaskReportStatus = true;
+                }
+                else if (strncmp(rx_buf, "SET_CELLS:", 10) == 0 ||
+                         strncmp(rx_buf, "SET_CELL_COUNT:", 15) == 0)
+                {
+                    char *cursor = (rx_buf[9] == ':') ?
+                                   &rx_buf[10] : &rx_buf[15];
+                    char *end = cursor;
+                    uint32_t count = (uint32_t)strtoul(cursor, &end, 10);
+                    if (end != cursor && *end == '\0' &&
+                            count >= 6u && count <= ACTIVECHANNELS)
+                    {
+                        gEisRequestedCellCount = (uint8_t)count;
+                        gTaskSetEisCellCount = true;
+                    }
+                    else
+                    {
+                        gEisRequestedCellCount = 0u;
+                        gTaskSetEisCellCount = true;
+                    }
                 }
                 else if (strncmp(rx_buf, "SET_EIS_CONFIG:", 15) == 0)
                 {
