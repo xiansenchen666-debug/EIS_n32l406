@@ -1,0 +1,1344 @@
+Dependencies for Project 'n32l406', Target 'Debug_NoBootNoClassB': (DO NOT MODIFY !)
+CompilerVersion: 6160000::V6.16::ARMCLANG
+F (..\code\cmsis\startup_n32l40x.s)(0x69D4B4E4)(--cpu Cortex-M4.fp.sp -g --pd "__MICROLIB SETA 1"-IC:\Users\a\AppData\Local\Arm\Packs\Nationstech\N32L40x_DFP\1.4.0\firmware\CMSIS\device--pd "__UVISION_VERSION SETA 534"--pd "N32L40X SETA 1"--pd "N32L406 SETA 1"--pd "USE_STDPERIPH_DRIVER SETA 1"--list .\listings\startup_n32l40x.lst--xref -o .\objects\startup_n32l40x.o--depend .\objects\startup_n32l40x.d)
+F (..\code\cmsis\system_n32l40x.c)(0x654B0E08)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/system_n32l40x.o -MD)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\user\main.c)(0x6A3CD68A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/main.o -MD)
+I (..\code\user\main.h)(0x6A3CD68F)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_DATA_TYPES.h)(0x69D4B4E3)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS_TYPES.h)(0x69C0D873)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X.h)(0x6A310C23)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x694377FF)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6035A4A8)
+I (..\code\user\ProjectConfig.h)(0x69B81003)
+I (..\code\user\BMS_DEF.h)(0x69AA8CE9)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6035A4A8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035A4A8)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_app.h)(0x6A3CD69D)
+I (..\..\CubeCommon\L1_MSP\MSP_GPIO.h)(0x69B3E661)
+I (..\..\CubeCommon\L1_MSP\MSP_SPI.h)(0x6A3B9AE6)
+I (..\..\CubeCommon\L1_MSP\MSP_UART.h)(0x6A180A3F)
+F (..\code\user\ProjectConfig.c)(0x69B8CB4E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/projectconfig.o -MD)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+I (..\code\user\ProjectConfig.h)(0x69B81003)
+I (..\code\user\BMS_DEF.h)(0x69AA8CE9)
+I (..\..\CubeCommon\L1_MSP\MSP_UART.h)(0x6A180A3F)
+I (..\..\CubeCommon\L1_MSP\MSP_GPIO.h)(0x69B3E661)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6035A4A8)
+F (..\code\user\ProjectConfig.h)(0x69B81003)()
+F (..\code\user\BMS_DEF.h)(0x69AA8CE9)()
+F (..\code\user\main.h)(0x6A3CD68F)()
+F (..\code\L0_SDK\src\misc.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/misc.o -MD)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_adc.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_adc.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_can.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_can.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_comp.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_comp.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_crc.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_crc.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_dac.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_dac.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_dbg.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_dbg.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_dma.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_dma.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_exti.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_exti.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_flash.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_flash.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_gpio.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_gpio.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_i2c.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_i2c.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_iwdg.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_iwdg.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_lcd.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_lcd.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_lptim.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_lptim.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_lptim.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_lpuart.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_lpuart.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_opamp.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_opamp.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_pwr.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_pwr.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_rcc.c)(0x69B0DF6B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_rcc.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_rtc.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_rtc.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_spi.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_spi.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_tim.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_tim.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_tsc.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_tsc.o -MD)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_usart.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_usart.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\code\L0_SDK\src\n32l40x_wwdg.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/n32l40x_wwdg.o -MD)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\..\CubeCommon\L1_MSP\MSP_ADC.c)(0x69B8BDD9)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/msp_adc.o -MD)
+I (..\..\CubeCommon\L1_MSP\MSP_ADC.h)(0x69B8BDDE)
+F (..\..\CubeCommon\L1_MSP\MSP_ADC.h)(0x69B8BDDE)()
+F (..\..\CubeCommon\L1_MSP\MSP_GPIO.c)(0x69C0B471)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/msp_gpio.o -MD)
+I (..\..\CubeCommon\L1_MSP\MSP_GPIO.h)(0x69B3E661)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+I (..\code\user\ProjectConfig.h)(0x69B81003)
+I (..\code\user\BMS_DEF.h)(0x69AA8CE9)
+F (..\..\CubeCommon\L1_MSP\MSP_GPIO.h)(0x69B3E661)()
+F (..\..\CubeCommon\L1_MSP\MSP_IT.c)(0x6A3CD696)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/msp_it.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6035A4A8)
+I (..\code\user\main.h)(0x6A3CD68F)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_DATA_TYPES.h)(0x69D4B4E3)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS_TYPES.h)(0x69C0D873)
+I (..\..\CubeCommon\L2_BSP\BSP_BQ7982X.h)(0x6A310C23)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x694377FF)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6035A4A8)
+I (..\code\user\ProjectConfig.h)(0x69B81003)
+I (..\code\user\BMS_DEF.h)(0x69AA8CE9)
+F (..\..\CubeCommon\L1_MSP\MSP_IWTD.c)(0x69ABABEB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/msp_iwtd.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+F (..\..\CubeCommon\L1_MSP\MSP_IWTD.h)(0x69ABABFD)()
+F (..\..\CubeCommon\L1_MSP\MSP_PWM.c)(0x69B7F699)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/msp_pwm.o -MD)
+F (..\..\CubeCommon\L1_MSP\MSP_PWM.h)(0x69ABAC07)()
+F (..\..\CubeCommon\L1_MSP\MSP_SPI.c)(0x6A3B9AE7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/msp_spi.o -MD)
+I (..\..\CubeCommon\L1_MSP\MSP_SPI.h)(0x6A3B9AE6)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+F (..\..\CubeCommon\L1_MSP\MSP_SPI.h)(0x6A3B9AE6)()
+F (..\..\CubeCommon\L1_MSP\MSP_UART.c)(0x6A311013)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/msp_uart.o -MD)
+I (..\..\CubeCommon\L1_MSP\MSP_UART.h)(0x6A180A3F)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035A4A8)
+F (..\..\CubeCommon\L1_MSP\MSP_UART.h)(0x6A180A3F)()
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X.c)(0x6A3B9AE7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/bsp_bq7982x.o -MD)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x.h)(0x6A310C23)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x694377FF)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs_types.h)(0x69C0D873)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_data_types.h)(0x69D4B4E3)
+I (..\..\CubeCommon\L1_MSP\MSP_GPIO.h)(0x69B3E661)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+I (..\..\CubeCommon\L1_MSP\MSP_SPI.h)(0x6A3B9AE6)
+I (..\code\user\main.h)(0x6A3CD68F)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6035A4A8)
+I (..\code\user\ProjectConfig.h)(0x69B81003)
+I (..\code\user\BMS_DEF.h)(0x69AA8CE9)
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X.h)(0x6A310C23)()
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_APP.c)(0x6A3CD6B8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/bsp_bq7982x_app.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035A4A8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6035A4A8)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x.h)(0x6A310C23)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs.h)(0x694377FF)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_regs_types.h)(0x69C0D873)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_data_types.h)(0x69D4B4E3)
+I (..\..\CubeCommon\L2_BSP\bsp_bq7982x_app.h)(0x6A3CD69D)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x6035A4A8)
+I (..\code\user\main.h)(0x6A3CD68F)
+I (..\code\CMSIS\n32l40x.h)(0x6A334A6D)
+I (..\code\CMSIS\core\core_cm4.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_version.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_compiler.h)(0x69A7EBAC)
+I (..\code\CMSIS\core\cmsis_armclang.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE13552)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x6035A4A4)
+I (..\code\CMSIS\core\mpu_armv7.h)(0x69A7EBAC)
+I (..\code\CMSIS\system_n32l40x.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6035A4A8)
+I (..\code\CMSIS\n32l40x_conf.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_adc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_can.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_comp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_crc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dac.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dbg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_dma.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_exti.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_flash.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_gpio.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_i2c.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_iwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_opamp.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_pwr.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rcc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_rtc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_spi.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tim.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_usart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lpuart.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_wwdg.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_tsc.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\n32l40x_lcd.h)(0x69A7EBAC)
+I (..\code\L0_SDK\inc\misc.h)(0x69A7EBAC)
+I (..\..\CubeCommon\L1_MSP\MSP_SPI.h)(0x6A3B9AE6)
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_APP.h)(0x6A3CD69D)()
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_DATA_TYPES.h)(0x69D4B4E3)()
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS.h)(0x694377FF)()
+F (..\..\CubeCommon\L2_BSP\BSP_BQ7982X_REGS_TYPES.h)(0x69C0D873)()
+F (..\..\CubeCommon\TOOL\lwrb.c)(0x69A7EBAC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../code/CMSIS/core -I ../code/CMSIS -I ../code/fsm -I ../code/L0_SDK/inc -I ../code/L1_MSP -I ../code/user -I ../code/L3_SSP -I ../code/tool/sfud -I ../code/list -I ../../CubeCommon/L1_MSP -I ../../CubeCommon/L1_MSP/ClassB -I ../../CubeCommon/L2_BSP -I ../../CubeCommon/L3_SSP -I ../../CubeCommon/TOOL/RTT -I ../../CubeCommon/TOOL -I ../../CubeCommon/rtthread -I ../../CubeCommon/rtthread/include -I ../../CubeCommon/rtthread/include/libc -I ../../CubeCommon/rtthread/components/device -I ../../CubeCommon/rtthread/components/finsh -I ../../CubeCommon/SOC -I ../../CubeCommon/SOP-IC:/Users/a/AppData/Local/Arm/Packs/Nationstech/N32L40x_DFP/1.4.0/firmware/CMSIS/device-D__UVISION_VERSION="534" -DN32L40X -DN32L406 -DUSE_STDPERIPH_DRIVER -Dn32l40x -DN32L40X -DUSE_STDPERIPH_DRIVER-o ./objects/lwrb.o -MD)
+I (..\..\CubeCommon\TOOL\lwrb.h)(0x69A7EBAC)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035A4A8)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035A4A8)
+F (..\..\CubeCommon\TOOL\lwrb.h)(0x69A7EBAC)()

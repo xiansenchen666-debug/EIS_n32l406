@@ -1,0 +1,395 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;/**
+    2 00000000         ;*******************************************************
+                       *******************
+    3 00000000         ;* File   : n32l40x_STLcpurunKEIL.s
+    4 00000000         ;* Version: V1.0.0
+    5 00000000         ;* Date   : 2021-04-25
+    6 00000000         ;* Brief  : This file contains procedures written in ass
+                       embler for full
+    7 00000000         ;           and partial transparent Marching RAM tests t
+                       o be called during
+    8 00000000         ;           start-up and run time
+    9 00000000         ;*******************************************************
+                       *******************
+   10 00000000         ;*/
+   11 00000000         
+   12 00000000                 THUMB
+   13 00000000                 REQUIRE8
+   14 00000000                 PRESERVE8
+   15 00000000         
+   16 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2 
+                                                            ; debug code
+   17 00000000         
+   18 00000000         
+   19 00000000         ; Reference to the FailSafe routine to be executed in ca
+                       se of non-recoverable
+   20 00000000         ; failure
+   21 00000000                 IMPORT           FailSafePOR_RunCheck
+   22 00000000         
+   23 00000000         ; C variables for control flow monitoring
+   24 00000000                 IMPORT           CtrlFlowCnt
+   25 00000000                 IMPORT           CtrlFlowCntInv
+   26 00000000         
+   27 00000000         
+   28 00000000         ;*******************************************************
+                       ************************
+   29 00000000         ; Function Name  : STL_RunTimeCPUTest
+   30 00000000         ; Description    : Cortex-M0 CPU test during run-time
+   31 00000000         ;                  Note: when possible, BRANCH are 16-bi
+                       t only (depending on
+   32 00000000         ;                  relative offset to final BL instructi
+                       on)
+   33 00000000         ; Input          : None.
+   34 00000000         ; Output         : Branch directly to a Fail Safe routin
+                       e in case of failure
+   35 00000000         ; Return         : CPUTEST_SUCCESS (=1) if test is ok
+   36 00000000         ;*******************************************************
+                       ************************/
+   37 00000000         
+   38 00000000         STL_RunTimeCPUTest
+                               PROC
+   39 00000000                 EXPORT           STL_RunTimeCPUTest
+   40 00000000         
+   41 00000000 E92D 0FF0       STMDB            SP!, {R4, R5, R6, R7, R8, R9, R
+10, R11}
+   42 00000004         ; Register R0 (holds value returned by the function)
+   43 00000004 F05F 30AA       MOVS             R0, #0xAAAAAAAA
+   44 00000008 F1B0 3FAA       CMP              R0, #0xAAAAAAAA
+   45 0000000C F47F AFFE       BNE.W            FailSafePOR_RunCheck
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   46 00000010 F05F 3055       MOVS             R0, #0x55555555
+   47 00000014 F1B0 3F55       CMP              R0, #0x55555555
+   48 00000018 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   49 0000001C         
+   50 0000001C         ; This is for control flow test (ENTRY point)
+   51 0000001C 486C            LDR              R0,=CtrlFlowCnt
+   52 0000001E         ; Assumes R1 OK; If not, error will be detected by R1 te
+                       st and Ctrl flow test later on
+   53 0000001E 6801            LDR              R1,[R0]
+   54 00000020 1CC9            ADDS             R1,R1,#0x3  ; CtrlFlowCnt += Ox
+                                                            O3
+   55 00000022 6001            STR              R1,[R0]
+   56 00000024         
+   57 00000024 2000            MOVS             R0, #0x0    ; For ramp test
+   58 00000026         
+   59 00000026         ; Register R1
+   60 00000026 F05F 31AA       MOVS             R1, #0xAAAAAAAA
+   61 0000002A F1B1 3FAA       CMP              R1, #0xAAAAAAAA
+   62 0000002E F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   63 00000032 F05F 3155       MOVS             R1, #0x55555555
+   64 00000036 F1B1 3F55       CMP              R1, #0x55555555
+   65 0000003A F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   66 0000003E 2101            MOVS             R1, #0x01   ; For ramp test
+   67 00000040         
+   68 00000040         ; Register R2
+   69 00000040 F05F 32AA       MOVS             R2, #0xAAAAAAAA
+   70 00000044 F1B2 3FAA       CMP              R2, #0xAAAAAAAA
+   71 00000048 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   72 0000004C F05F 3255       MOVS             R2, #0x55555555
+   73 00000050 F1B2 3F55       CMP              R2, #0x55555555
+   74 00000054 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   75 00000058 2202            MOVS             R2, #0x02   ; For ramp test
+   76 0000005A         
+   77 0000005A         ; Register R3
+   78 0000005A F05F 33AA       MOVS             R3, #0xAAAAAAAA
+   79 0000005E F1B3 3FAA       CMP              R3, #0xAAAAAAAA
+   80 00000062 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   81 00000066 F05F 3355       MOVS             R3, #0x55555555
+   82 0000006A F1B3 3F55       CMP              R3, #0x55555555
+   83 0000006E F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   84 00000072 2303            MOVS             R3, #0x03   ; For ramp test
+   85 00000074         
+   86 00000074         ; Register R4
+   87 00000074 F05F 34AA       MOVS             R4, #0xAAAAAAAA
+   88 00000078 F1B4 3FAA       CMP              R4, #0xAAAAAAAA
+   89 0000007C F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   90 00000080 F05F 3455       MOVS             R4, #0x55555555
+   91 00000084 F1B4 3F55       CMP              R4, #0x55555555
+   92 00000088 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   93 0000008C 2404            MOVS             R4, #0x04   ; For ramp test
+   94 0000008E         
+   95 0000008E         ; Register R5
+   96 0000008E F05F 35AA       MOVS             R5, #0xAAAAAAAA
+   97 00000092 F1B5 3FAA       CMP              R5, #0xAAAAAAAA
+   98 00000096 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+   99 0000009A F05F 3555       MOVS             R5, #0x55555555
+  100 0000009E F1B5 3F55       CMP              R5, #0x55555555
+  101 000000A2 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+  102 000000A6 2505            MOVS             R5, #0x05   ; For ramp test
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+  103 000000A8         
+  104 000000A8         ; Register R6
+  105 000000A8 F05F 36AA       MOVS             R6, #0xAAAAAAAA
+  106 000000AC F1B6 3FAA       CMP              R6, #0xAAAAAAAA
+  107 000000B0 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+  108 000000B4 F05F 3655       MOVS             R6, #0x55555555
+  109 000000B8 F1B6 3F55       CMP              R6, #0x55555555
+  110 000000BC F47F AFFE       BNE.W            FailSafePOR_RunCheck
+  111 000000C0 2606            MOVS             R6, #0x06   ; For ramp test
+  112 000000C2         
+  113 000000C2         ; Register R7
+  114 000000C2 F05F 37AA       MOVS             R7, #0xAAAAAAAA
+  115 000000C6 F1B7 3FAA       CMP              R7, #0xAAAAAAAA
+  116 000000CA F47F AFFE       BNE.W            FailSafePOR_RunCheck
+  117 000000CE F05F 3755       MOVS             R7, #0x55555555
+  118 000000D2 F1B7 3F55       CMP              R7, #0x55555555
+  119 000000D6 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+  120 000000DA 2707            MOVS             R7, #0x07   ; For ramp test
+  121 000000DC         
+  122 000000DC         ; Register R8
+  123 000000DC F05F 38AA       MOVS             R8, #0xAAAAAAAA
+  124 000000E0 F1B8 3FAA       CMP              R8, #0xAAAAAAAA
+  125 000000E4 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+  126 000000E8 F05F 3855       MOVS             R8, #0x55555555
+  127 000000EC F1B8 3F55       CMP              R8, #0x55555555
+  128 000000F0 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+  129 000000F4 F05F 0808       MOVS             R8, #0x08   ; For ramp test
+  130 000000F8         
+  131 000000F8         ; Register R9
+  132 000000F8 F05F 39AA       MOVS             R9, #0xAAAAAAAA
+  133 000000FC F1B9 3FAA       CMP              R9, #0xAAAAAAAA
+  134 00000100 F47F AFFE       BNE.W            FailSafePOR_RunCheck
+  135 00000104 F05F 3955       MOVS             R9, #0x55555555
+  136 00000108 F1B9 3F55       CMP              R9, #0x55555555
+  137 0000010C F47F AFFE       BNE.W            FailSafePOR_RunCheck
+  138 00000110 F05F 0909       MOVS             R9, #0x09   ; For ramp test
+  139 00000114         
+  140 00000114         ; Register R10
+  141 00000114 F05F 3AAA       MOVS             R10, #0xAAAAAAAA
+  142 00000118 F1BA 3FAA       CMP              R10, #0xAAAAAAAA
+  143 0000011C F47F AFFE       BNE              FailSafePOR_RunCheck
+  144 00000120 F05F 3A55       MOVS             R10, #0x55555555
+  145 00000124 F1BA 3F55       CMP              R10, #0x55555555
+  146 00000128 F47F AFFE       BNE              FailSafePOR_RunCheck
+  147 0000012C F05F 0A0A       MOVS             R10, #0x0A  ; For ramp test
+  148 00000130         
+  149 00000130         ; Register R11
+  150 00000130 F05F 3BAA       MOVS             R11, #0xAAAAAAAA
+  151 00000134 F1BB 3FAA       CMP              R11, #0xAAAAAAAA
+  152 00000138 F47F AFFE       BNE              FailSafePOR_RunCheck
+  153 0000013C F05F 3B55       MOVS             R11, #0x55555555
+  154 00000140 F1BB 3F55       CMP              R11, #0x55555555
+  155 00000144 F47F AFFE       BNE              FailSafePOR_RunCheck
+  156 00000148 F05F 0B0B       MOVS             R11, #0x0B  ; For ramp test
+  157 0000014C         
+  158 0000014C         ; Register R12
+  159 0000014C F05F 3CAA       MOVS             R12, #0xAAAAAAAA
+  160 00000150 F1BC 3FAA       CMP              R12, #0xAAAAAAAA
+  161 00000154 F47F AFFE       BNE              FailSafePOR_RunCheck
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+  162 00000158 F05F 3C55       MOVS             R12, #0x55555555
+  163 0000015C F1BC 3F55       CMP              R12, #0x55555555
+  164 00000160 F47F AFFE       BNE              FailSafePOR_RunCheck
+  165 00000164 F05F 0C0C       MOVS             R12, #0x0C  ; For ramp test
+  166 00000168         
+  167 00000168         ; Ramp pattern verification
+  168 00000168 2800            CMP              R0, #0x00
+  169 0000016A F47F AFFE       BNE              FailSafePOR_RunCheck
+  170 0000016E 2901            CMP              R1, #0x01
+  171 00000170 F47F AFFE       BNE              FailSafePOR_RunCheck
+  172 00000174 2A02            CMP              R2, #0x02
+  173 00000176 F47F AFFE       BNE              FailSafePOR_RunCheck
+  174 0000017A 2B03            CMP              R3, #0x03
+  175 0000017C F47F AFFE       BNE              FailSafePOR_RunCheck
+  176 00000180 2C04            CMP              R4, #0x04
+  177 00000182 F47F AFFE       BNE              FailSafePOR_RunCheck
+  178 00000186 2D05            CMP              R5, #0x05
+  179 00000188 F47F AFFE       BNE              FailSafePOR_RunCheck
+  180 0000018C 2E06            CMP              R6, #0x06
+  181 0000018E F47F AFFE       BNE              FailSafePOR_RunCheck
+  182 00000192 2F07            CMP              R7, #0x07
+  183 00000194 F47F AFFE       BNE              FailSafePOR_RunCheck
+  184 00000198 F1B8 0F08       CMP              R8, #0x08
+  185 0000019C F47F AFFE       BNE              FailSafePOR_RunCheck
+  186 000001A0 F1B9 0F09       CMP              R9, #0x09
+  187 000001A4 F47F AFFE       BNE              FailSafePOR_RunCheck
+  188 000001A8 F1BA 0F0A       CMP              R10, #0x0A
+  189 000001AC F47F AFFE       BNE              FailSafePOR_RunCheck
+  190 000001B0 F1BB 0F0B       CMP              R11, #0x0B
+  191 000001B4 F47F AFFE       BNE              FailSafePOR_RunCheck
+  192 000001B8 F1BC 0F0C       CMP              R12, #0x0C
+  193 000001BC F47F AFFE       BNE              FailSafePOR_RunCheck
+  194 000001C0         
+  195 000001C0 E8BD 0FF0       LDMIA            SP!, {R4, R5, R6, R7, R8, R9, R
+10, R11}
+  196 000001C4         
+  197 000001C4         ; Control flow test (EXIT point)
+  198 000001C4 4803            LDR              R0,=CtrlFlowCntInv
+  199 000001C6 6801            LDR              R1,[R0]
+  200 000001C8 1EC9            SUBS             R1,R1,#0x3  ; CtrlFlowCntInv -=
+                                                             OxO3
+  201 000001CA 6001            STR              R1,[R0]
+  202 000001CC         
+  203 000001CC 2001            MOVS             R0, #0x1    ; CPUTEST_SUCCESS
+  204 000001CE 4770            BX               LR          ; return to the cal
+                                                            ler
+  205 000001D0                 ENDP                         ; routine (unrecove
+                                                            rable fault)
+  206 000001D0         
+  207 000001D0                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --depend=.
+\objects\n32l40x_stlcpurunkeil.d -o.\objects\n32l40x_stlcpurunkeil.o -I.\RTE\_D
+ebug_NoBootNoClassB -IC:\Keil_v5\ARM\PACK\Nationstech\N32L40x_DFP\0.1.0\firmwar
+e\CMSIS\device -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__MICROLIB SETA 1" -
+-predefine="__UVISION_VERSION SETA 526" --predefine="N32L40X SETA 1" --predefin
+e="N32L406 SETA 1" --predefine="USE_STDPERIPH_DRIVER SETA 1" --list=.\listings\
+n32l40x_stlcpurunkeil.lst ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 16 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+   Uses
+      None
+Comment: .text unused
+STL_RunTimeCPUTest 00000000
+
+Symbol: STL_RunTimeCPUTest
+   Definitions
+      At line 38 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+   Uses
+      At line 39 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+Comment: STL_RunTimeCPUTest used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+CtrlFlowCnt 00000000
+
+Symbol: CtrlFlowCnt
+   Definitions
+      At line 24 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+   Uses
+      At line 51 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+Comment: CtrlFlowCnt used once
+CtrlFlowCntInv 00000000
+
+Symbol: CtrlFlowCntInv
+   Definitions
+      At line 25 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+   Uses
+      At line 198 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+Comment: CtrlFlowCntInv used once
+FailSafePOR_RunCheck 00000000
+
+Symbol: FailSafePOR_RunCheck
+   Definitions
+      At line 21 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+   Uses
+      At line 45 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 48 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 62 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 65 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 71 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 74 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 80 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 83 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 89 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 92 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 98 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.s
+      At line 101 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 107 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 110 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 116 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 119 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 125 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 128 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 134 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 137 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 143 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 146 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 152 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 155 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+External symbols
+
+s
+      At line 161 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 164 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 169 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 171 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 173 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 175 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 177 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 179 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 181 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 183 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 185 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 187 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 189 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 191 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+      At line 193 in file ..\..\CubeCommon\L1_MSP\ClassB\n32l40x_STLcpurunKEIL.
+s
+
+3 symbols
+343 symbols in table

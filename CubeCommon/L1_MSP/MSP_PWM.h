@@ -1,0 +1,19 @@
+/************************************** (C) Copyright 2022-2024 De.Power,China. *************************************
+ *                                                DE.POWER Co., Ltd                                                 *
+ *                                              Product R & D department                                            *
+ *                                                Software Department                                               *
+ *                                                All Rights Reserved.                                              */
+/********************************************************************************************************************
+ * @file            MSP_PWM.h
+ * @brief           None.
+ * @details         no details
+ * @attention       no attention
+ * @author          zhuyongjun@depower.com.cn
+ * @version         V2.00
+ * @date            2024-12-04
+ * @copyright       DE.POWER
+ * *****************************************************************************************************************/
+#ifndef _MSP_PWM_H_
+#define _MSP_PWM_H_
+
+#endif

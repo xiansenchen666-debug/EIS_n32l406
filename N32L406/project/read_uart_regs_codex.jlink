@@ -1,0 +1,11 @@
+si SWD
+speed 4000
+device N32L406CB
+connect
+h
+mem32 0x40010C00 12
+mem32 0x40004400 8
+mem32 0x40018000 8
+mem32 0xE000E100 2
+g
+qc

@@ -1,0 +1,1402 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EIS_n32l406 EIS 调用流程与 BQ 参数配置说明</title>
+  <style>
+    :root {
+      --bg: #f4f6f7;
+      --bg-2: #e8ecef;
+      --paper: rgba(255, 255, 253, .96);
+      --paper-solid: #fffffd;
+      --ink: #202326;
+      --muted: #626970;
+      --muted-2: #8a9096;
+      --line: #d7dde1;
+      --line-soft: #e9edf0;
+      --blue: #3f6f72;
+      --blue-2: #29595c;
+      --indigo: #5f6b7a;
+      --green: #4f7f78;
+      --orange: #5f7380;
+      --red: #8f6268;
+      --code: #222831;
+      --shadow: 0 22px 54px rgba(24, 28, 32, .10);
+      --shadow-soft: 0 12px 30px rgba(24, 28, 32, .065);
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(63, 111, 114, .08), transparent 32%),
+        radial-gradient(circle at 92% 8%, rgba(95, 107, 122, .08), transparent 30%),
+        linear-gradient(180deg, var(--bg-2), var(--bg) 340px, #f8f9fa);
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.82;
+      letter-spacing: .01em;
+      counter-reset: section;
+    }
+    header {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #1b1f22, #273b3d 58%, #394653);
+      color: white;
+      padding: 46px 24px 38px;
+      border-bottom: 1px solid rgba(255, 255, 255, .22);
+      box-shadow: 0 18px 46px rgba(24, 28, 32, .18);
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: -80px -80px auto auto;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(255,255,255,.16), transparent 66%);
+      pointer-events: none;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+    }
+    .hero {
+      max-width: 1360px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 28px;
+      align-items: end;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 11px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.25);
+      font-size: 15px;
+      color: #f2eee4;
+    }
+    header h1 {
+      max-width: 900px;
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+    header p { margin: 6px 0; opacity: .90; font-size: 18px; }
+    .hero-panel {
+      background: rgba(255, 255, 255, .10);
+      border: 1px solid rgba(255, 255, 255, .20);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.12);
+    }
+    .hero-panel-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .metric {
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .11);
+      border: 1px solid rgba(255, 255, 255, .15);
+    }
+    .metric b {
+      display: block;
+      font-size: 18px;
+      line-height: 1.15;
+      color: #fff;
+    }
+    .metric span {
+      display: block;
+      margin-top: 4px;
+      color: #e5eee6;
+      font-size: 14px;
+    }
+    main {
+      max-width: 1360px;
+      margin: 26px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 296px minmax(0, 1fr);
+      gap: 24px;
+    }
+    nav {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 16px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+      max-height: calc(100vh - 36px);
+      overflow: auto;
+    }
+    nav h2 {
+      font-size: 20px;
+      margin: 0 0 4px;
+      letter-spacing: -.01em;
+    }
+    nav .small {
+      display: block;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    nav a {
+      display: flex;
+      align-items: center;
+      min-height: 31px;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 6px 9px;
+      font-size: 17px;
+      border-radius: 10px;
+      transition: background .15s ease, transform .15s ease, color .15s ease;
+    }
+    nav a:hover {
+      background: #f0f1ed;
+      color: var(--blue-2);
+      transform: translateX(2px);
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+      counter-increment: section;
+    }
+    section::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, #3f6f72, #5f6b7a);
+      opacity: .85;
+    }
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line-soft);
+      font-size: 30px;
+      letter-spacing: -.025em;
+      color: #22272b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::before {
+      content: "CH " counter(section, decimal-leading-zero);
+      flex: 0 0 auto;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #f0f1ed;
+      color: var(--blue);
+      border: 1px solid #d7d9d3;
+      font-size: 14px;
+      line-height: 1;
+      letter-spacing: .04em;
+      font-weight: 800;
+    }
+    h3 {
+      margin: 28px 0 12px;
+      font-size: 24px;
+      letter-spacing: -.015em;
+      color: #343a40;
+    }
+    h4 { margin: 18px 0 8px; font-size: 20px; color: #495057; }
+    p { margin: 8px 0; }
+    .note, .warn, .ok {
+      border-radius: 14px;
+      padding: 13px 15px;
+      margin: 14px 0;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.3);
+    }
+    .note { background: #f2f4f1; border: 1px solid #d9ded7; }
+    .warn { background: #eef3f5; border: 1px solid #d1dbe0; }
+    .ok { background: #f2f4f1; border: 1px solid #d9ded7; }
+    code, pre {
+      font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+      color: var(--code);
+    }
+    code {
+      background: #f0f1ef;
+      padding: 2px 6px;
+      border-radius: 7px;
+      border: 1px solid #deded8;
+      font-size: .98em;
+    }
+    pre {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), transparent 26px),
+        #0b1020;
+      color: #eef2ff;
+      padding: 16px 18px;
+      border-radius: 16px;
+      overflow: auto;
+      font-size: 16px;
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 12px 24px rgba(31,41,55,.16);
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 14px 0 22px;
+      font-size: 16px;
+      background: var(--paper-solid);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(24, 28, 32, .045);
+    }
+    th, td {
+      border: 0;
+      border-bottom: 1px solid var(--line-soft);
+      padding: 13px 14px;
+      vertical-align: top;
+    }
+    td + td, th + th { border-left: 1px solid var(--line-soft); }
+    th {
+      background: linear-gradient(180deg, #fafaf8, #f0f1ed);
+      text-align: left;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      color: #424a52;
+      font-weight: 700;
+    }
+    tbody tr:nth-child(even) { background: #f7f7f4; }
+    tbody tr:hover { background: #f0f1ed; }
+    tbody tr:last-child td { border-bottom: 0; }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      background: #f0f1ed;
+      color: #51675e;
+      border: 1px solid #d7d9d3;
+    }
+    .tag.write { background: #f0f3ee; color: #60786b; border-color: #d8ddd5; }
+    .tag.read { background: #eef3f5; color: #5f7380; border-color: #d1dbe0; }
+    .tag.action { background: #eef3f5; color: #5f7380; border-color: #d1dbe0; }
+    .tag.stop { background: #f5ebe8; color: #94675d; border-color: #e1cbc5; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+      counter-reset: flow;
+    }
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px;
+      background:
+        linear-gradient(180deg, #ffffff, #f7f7f4);
+      min-height: 118px;
+      box-shadow: 0 10px 24px rgba(24, 28, 32, .055);
+      position: relative;
+      overflow: hidden;
+    }
+    .box::after {
+      counter-increment: flow;
+      content: counter(flow);
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      width: 25px;
+      height: 25px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #f0f1ed;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 15px;
+    }
+    .box b { display: block; margin-bottom: 6px; color: #22272b; font-size: 18px; }
+    .small { color: var(--muted); font-size: 16px; }
+    .kbd {
+      display: inline-block;
+      border: 1px solid #cbd5e1;
+      border-bottom-width: 2px;
+      border-radius: 6px;
+      padding: 0 6px;
+      background: #f7f7f4;
+      color: #2f3438;
+      font-family: Consolas, monospace;
+      font-size: 15px;
+    }
+    .wide { overflow-x: auto; }
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 22px;
+    }
+    .visual-card {
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      min-height: 132px;
+      box-shadow: 0 12px 26px rgba(24, 28, 32, .055);
+    }
+    .visual-card::before {
+      content: "";
+      position: absolute;
+      right: -32px;
+      top: -32px;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      opacity: .25;
+      background: currentColor;
+    }
+    .visual-card::after {
+      content: "";
+      position: absolute;
+      right: 18px;
+      bottom: 16px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      border: 2px solid currentColor;
+      opacity: .16;
+      transform: rotate(12deg);
+    }
+    .visual-card h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      color: #22272b;
+    }
+    .visual-card p {
+      margin: 0;
+      color: #56616a;
+      font-size: 17px;
+    }
+    .vc-green { background: #f1f4f0; color: #60786b; }
+    .vc-amber { background: #eef3f5; color: #5f7380; }
+    .vc-slate { background: #f2f3f3; color: #697178; }
+    .vc-rose { background: #f5ebe8; color: #94675d; }
+    .vc-mint { background: #eef4f2; color: #5f827b; }
+    .vc-violet { background: #f2eff3; color: #756780; }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 12px;
+      margin: 18px 0 24px;
+      padding-left: 24px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, #3f6f72, #5f6b7a, #8f6268);
+      border-radius: 999px;
+    }
+    .timeline-item {
+      position: relative;
+      background: #fffffd;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 22px rgba(24,28,32,.045);
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -23px;
+      top: 17px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #46685a;
+      box-shadow: 0 0 0 4px #f0f1ed;
+    }
+    .timeline-item b { display: block; margin-bottom: 4px; }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+    .pipe {
+      border-radius: 16px;
+      padding: 14px 12px;
+      border: 1px solid var(--line);
+      background: #fffffd;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 22px rgba(24,28,32,.045);
+    }
+    .pipe:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #5f6b7a;
+      font-weight: 900;
+      z-index: 2;
+    }
+    .pipe .icon {
+      width: 38px;
+      height: 38px;
+      margin: 0 auto 8px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: #f0f1ed;
+      color: #51675e;
+      font-weight: 900;
+    }
+    .pipe b { display: block; font-size: 17px; }
+    .pipe span { display: block; color: var(--muted); font-size: 15px; margin-top: 3px; }
+
+    .reg-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0 22px;
+    }
+    .reg-block {
+      border-radius: 18px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: #fffffd;
+      box-shadow: 0 10px 22px rgba(24,28,32,.045);
+    }
+    .reg-block .label {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .reg-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #56616a;
+      font-size: 16px;
+    }
+    .reg-block li {
+      margin: 5px 0;
+      padding-left: 12px;
+      position: relative;
+    }
+    .reg-block li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .75em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: .45;
+    }
+    ul, ol { padding-left: 22px; }
+    li { margin: 7px 0; }
+    ::selection { background: rgba(70,104,90,.20); }
+    @media (max-width: 980px) {
+      main { grid-template-columns: 1fr; }
+      nav { position: static; }
+      .flow { grid-template-columns: 1fr; }
+      .visual-grid { grid-template-columns: 1fr; }
+      .pipeline { grid-template-columns: 1fr; }
+      .pipe:not(:last-child)::after { display: none; }
+      .reg-map { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="hero">
+    <div>
+      <div class="eyebrow">EIS_n32l406 · BQ7982x · 工程说明书</div>
+      <h1>EIS 调用流程与 BQ 参数配置详解</h1>
+      <p>生成日期：2026-06-18。基于当前工程源码整理，重点解释真实调用链和实际写入 BQ 的参数。</p>
+      <p>覆盖：上位机命令、MCU 状态机、扫频/单频参数、寄存器字段、启动/停止时序、结果读取与阻抗计算。</p>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-panel-title">当前关键配置</div>
+      <div class="metrics">
+        <div class="metric"><b>31.25 kHz</b><span>BQ PWM 载波</span></div>
+        <div class="metric"><b>25 点</b><span>扫频频点</span></div>
+        <div class="metric"><b>0.04 Hz</b><span>最低频率</span></div>
+        <div class="metric"><b>2087.29 Hz</b><span>最高频率</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <nav>
+    <h2>目录</h2>
+    <span class="small">按流程阅读：先看命令和状态机，再看 BQ 寄存器。</span>
+    <a href="#scope">1. 文档范围和源码入口</a>
+    <a href="#summary">2. 当前 EIS 总结</a>
+    <a href="#commands">3. 上位机命令入口</a>
+    <a href="#flow">4. 整体调用流程</a>
+    <a href="#state-machine">5. EIS 状态机和定时</a>
+    <a href="#sweep-table">6. 扫频参数表</a>
+    <a href="#calc">7. 参数计算公式</a>
+    <a href="#bq-init">8. 唤醒/初始化 BQ 写入</a>
+    <a href="#eis-config">9. EIS_Config 写入参数</a>
+    <a href="#eis-pwm">10. EIS_PWM 启动参数</a>
+    <a href="#smart-freeze">11. Smart Freeze / DFT</a>
+    <a href="#read-result">12. 读取结果和计算阻抗</a>
+    <a href="#stop">13. 停止 EIS</a>
+    <a href="#register-cheatsheet">14. BQ 寄存器速查表</a>
+    <a href="#risk">15. 当前代码注意点</a>
+  </nav>
+
+  <div>
+    <section id="scope">
+      <h2>1. 文档范围和源码入口</h2>
+      <p>本文档解释的是当前 <code>EIS_n32l406</code> 工程里的 EIS 流程。相关核心源码如下：</p>
+      <table>
+        <thead>
+          <tr><th>文件</th><th>用途</th><th>关键函数/变量</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>N32L406/code/user/main.c</code></td>
+            <td>主循环、EIS 状态机入口、扫频表、单频/扫频启动、结果上报。</td>
+            <td><code>main()</code>, <code>SysTask_SetEisDFE()</code>, <code>SysTask_StartEisDFT()</code>, <code>SysTask_ReadEis()</code>, <code>ApplyEisTableConfig()</code></td>
+          </tr>
+          <tr>
+            <td><code>CubeCommon/L1_MSP/MSP_IT.c</code></td>
+            <td>USART2 命令解析、SysTick 定时触发 EIS 阶段切换。</td>
+            <td><code>USART2_IRQHandler()</code>, <code>SysTick_Handler()</code></td>
+          </tr>
+          <tr>
+            <td><code>CubeCommon/L2_BSP/BSP_BQ7982X_APP.c</code></td>
+            <td>具体写 BQ 寄存器、EIS 参数计算、PWM/ADC/DFE/DFT/Smart Freeze 控制。</td>
+            <td><code>EIS_Para_Calculation()</code>, <code>EIS_Config()</code>, <code>EIS_PWM()</code>, <code>EIS_Stop()</code>, <code>EIS_SMART_FREEZE()</code>, <code>Read_EIS_CV()</code>, <code>Read_EIS_CC()</code>, <code>EIS_Z_Cal()</code></td>
+          </tr>
+          <tr>
+            <td><code>CubeCommon/L2_BSP/BSP_BQ7982X_REGS.h</code></td>
+            <td>BQ 寄存器地址宏定义。</td>
+            <td><code>BQ7982X_EIS_*_OFFSET</code>, <code>BQ7982X_ADC_CTRL*_OFFSET</code>, <code>BQ7982X_SMART_FREEZE_*</code></td>
+          </tr>
+          <tr>
+            <td><code>CubeCommon/L2_BSP/BSP_BQ7982X_REGS_TYPES.h</code></td>
+            <td>BQ 寄存器 bitfield 结构体。</td>
+            <td><code>eis_pwm_ctrl*</code>, <code>eis_dfe_ctrl*</code>, <code>eis_dft_ctrl*</code>, <code>eis_com_ctrl*</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">
+        本文档中的“解释”以当前代码行为为准。少数字段的枚举含义，源码注释没有完整列出；这种情况下本文档会说明“当前代码用途”，避免把未确认的 datasheet 枚举解释写死。
+      </div>
+    </section>
+
+    <section id="summary">
+      <h2>2. 当前 EIS 总结</h2>
+      <div class="visual-grid">
+        <div class="visual-card vc-green">
+          <h3>载波已经降到 31.25 kHz</h3>
+          <p>由 BQ 内部 32 MHz 时钟通过 <code>PWM_DIVISOR=0x0380</code> 分频得到，不是 MCU 直接输出载波。</p>
+        </div>
+        <div class="visual-card vc-amber">
+          <h3>扫频结束会关闭激励</h3>
+          <p>最后一个频点完成后调用 <code>EIS_Stop()</code>，依次关 DFE、CSADC、ADC、PWM。</p>
+        </div>
+        <div class="visual-card vc-slate">
+          <h3>唤醒前不写 EIS 寄存器</h3>
+          <p><code>WAKE</code> 只做 BQ 栈唤醒和初始化，避免 BQ 未醒时写寄存器导致通信异常。</p>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>项目</th><th>当前代码行为</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>测试模式</td>
+            <td>单频测试、扫频测试</td>
+            <td>单频用 <code>sin_fs</code>；扫频用 <code>eis_scan_freqs[]</code> 表。</td>
+          </tr>
+          <tr>
+            <td>扫频点数</td>
+            <td>25 个频点</td>
+            <td>从 0.04 Hz 到 2087.29 Hz。</td>
+          </tr>
+          <tr>
+            <td>每个频点测试次数</td>
+            <td><code>TEST_TIMES_PER_FREQ = 1</code></td>
+            <td>每个频点测一次后进入下一个频点。</td>
+          </tr>
+          <tr>
+            <td>BQ EIS PWM 载波</td>
+            <td><code>31.25 kHz</code></td>
+            <td><code>PWM_DIVISOR = 0x0380</code>，按当前代码注释公式：<code>32 MHz / (0x0380 + 128) = 31.25 kHz</code>。</td>
+          </tr>
+          <tr>
+            <td>PWM 激励幅度</td>
+            <td><code>AMP1 = 0x4C = 76</code></td>
+            <td>按源码注释公式：<code>AMP1 / 256 * 100%</code>，约 29.69% 满幅。实际激励电流还取决于外部激励电路。</td>
+          </tr>
+          <tr>
+            <td>PWM DC 偏置</td>
+            <td><code>DC_SHIFT = 0x800</code></td>
+            <td><code>2048 / 4096 = 50%</code>，正弦 PWM 中心点在中间。</td>
+          </tr>
+          <tr>
+            <td>扫频结束</td>
+            <td>调用 <code>EIS_Stop()</code></td>
+            <td>关闭 BQ 内部 DFE、CSADC、ADC、PWM，避免结束后仍有载波和激励。</td>
+          </tr>
+          <tr>
+            <td>唤醒前是否 stop</td>
+            <td>否</td>
+            <td><code>gTaskWakeStackQuery</code> 分支只清 MCU 状态并调用 <code>InitBmicStack()</code>，不再写 EIS 寄存器。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="commands">
+      <h2>3. 上位机命令入口</h2>
+      <p>上位机通过 USART2 发字符串，<code>USART2_IRQHandler()</code> 在收到换行 <code>\n</code> 或回车 <code>\r</code> 后解析命令。</p>
+      <table>
+        <thead>
+          <tr><th>命令</th><th>触发标志</th><th>后续主循环动作</th><th>返回</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>WAKE_STACK</code> 或 <code>WAKE</code></td>
+            <td><code>gTaskWakeStackQuery = true</code></td>
+            <td>清 EIS 状态，调用 <code>InitBmicStack()</code> 唤醒并初始化 BQ。</td>
+            <td><code>ACK_WAKE</code></td>
+          </tr>
+          <tr>
+            <td><code>BQ_RESET</code> 或 <code>RESET_BQ</code></td>
+            <td><code>gTaskBqResetQuery = true</code></td>
+            <td>清 EIS 状态，调用 <code>BQ7982X_SoftReset()</code>。</td>
+            <td><code>ACK_RESET</code></td>
+          </tr>
+          <tr>
+            <td><code>START_EIS</code></td>
+            <td><code>gTaskStartEisQuery = true</code></td>
+            <td>进入扫频模式：<code>is_scanning=1</code>，<code>current_scan_idx=0</code>，<code>update_frq=1</code>。</td>
+            <td>每个通道输出 <code>EIS_DATA</code>；全部完成输出 <code>EIS_DONE</code>。</td>
+          </tr>
+          <tr>
+            <td><code>START_SINGLE</code></td>
+            <td><code>gTaskStartSingleEisQuery = true</code></td>
+            <td>进入单频模式：<code>is_scanning=0</code>，测当前 <code>sin_fs</code>。</td>
+            <td>输出 <code>EIS_DATA</code> 和 <code>EIS_DONE</code>。</td>
+          </tr>
+          <tr>
+            <td><code>STOP_EIS</code></td>
+            <td><code>gTaskStopEisQuery = true</code></td>
+            <td>立即调用 <code>EIS_Stop()</code>，然后清所有 EIS 状态。</td>
+            <td>当前代码没有单独打印 ACK_STOP。</td>
+          </tr>
+          <tr>
+            <td><code>SET_FREQ:xxx</code> 或 <code>FREQ:xxx</code></td>
+            <td><code>gTaskSetEisFreq = true</code></td>
+            <td>只更新 <code>sin_fs</code>；不会立即启动测试。</td>
+            <td>无直接返回。</td>
+          </tr>
+          <tr>
+            <td><code>SET_EIS_CONFIG:freq,dft_len,hpf_hz,dsr</code></td>
+            <td><code>gTaskSetEisFreq = true</code>，<code>gEisConfigOverride=1</code></td>
+            <td>用于单频测试覆盖默认 DFT/HPF/DSR 参数。条件：<code>freq&gt;0</code>、<code>dft_len&gt;0</code>、<code>hpf_hz&gt;0</code>、<code>1&lt;=dsr&lt;=10</code>。</td>
+            <td>无直接返回。</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre>单频测试典型命令：
+WAKE
+SET_FREQ:50
+START_SINGLE
+
+扫频测试典型命令：
+WAKE
+START_EIS
+
+带自定义参数的单频：
+WAKE
+SET_EIS_CONFIG:0.1,39063,0.1,10
+START_SINGLE</pre>
+    </section>
+
+    <section id="flow">
+      <h2>4. 整体调用流程</h2>
+      <div class="timeline">
+        <div class="timeline-item"><b>上位机发命令</b><span class="small">USART2 中断只负责解析字符串和置位标志，不直接执行耗时 BQ 操作。</span></div>
+        <div class="timeline-item"><b>主循环消费标志</b><span class="small">根据标志进入唤醒、停止、单频、扫频或设置频率分支。</span></div>
+        <div class="timeline-item"><b>配置 BQ 参数</b><span class="small">频率、DFT、HPF、DSR、PWM 幅度、载波分频都在启动前写入 BQ。</span></div>
+        <div class="timeline-item"><b>等待 DFE/DFT</b><span class="small">SysTick 按 <code>dfe_wait_time</code> 和 <code>dft_wait_time</code> 推动下一阶段。</span></div>
+        <div class="timeline-item"><b>读取/上报/停止</b><span class="small">读实部/虚部，计算阻抗，上报 <code>EIS_DATA</code>，结束时关闭载波。</span></div>
+      </div>
+      <div class="flow">
+        <div class="box">
+          <b>1. 上位机命令</b>
+          <span class="small">USART2 中断解析字符串，置位任务标志。</span>
+        </div>
+        <div class="box">
+          <b>2. 主循环处理标志</b>
+          <span class="small">唤醒、复位、停止、设置频率、启动单频、启动扫频。</span>
+        </div>
+        <div class="box">
+          <b>3. 配置并启动 EIS</b>
+          <span class="small"><code>SysTask_SetEisDFE()</code> 计算参数，调用 <code>EIS_Config()</code> 和 <code>EIS_PWM()</code>。</span>
+        </div>
+        <div class="box">
+          <b>4. DFE 等待</b>
+          <span class="small">SysTick 等待 <code>dfe_wait_time</code>，然后触发 <code>gTaskEisDFT</code>。</span>
+        </div>
+        <div class="box">
+          <b>5. Smart Freeze / DFT</b>
+          <span class="small"><code>SysTask_StartEisDFT()</code> 调 <code>EIS_SMART_FREEZE()</code> 触发 BQ DFT。</span>
+        </div>
+        <div class="box">
+          <b>6. DFT 等待</b>
+          <span class="small">SysTick 等待 <code>dft_wait_time</code>，然后触发 <code>gTaskEisRead</code>。</span>
+        </div>
+        <div class="box">
+          <b>7. 读取结果</b>
+          <span class="small">读 EIS_STAT，确认完成后读 CV/CC 实部和虚部。</span>
+        </div>
+        <div class="box">
+          <b>8. 上报/推进/停止</b>
+          <span class="small">打印 <code>EIS_DATA</code>；扫频推进下个频点；全部结束调用 <code>EIS_Stop()</code>。</span>
+        </div>
+      </div>
+      <h3>主调用链</h3>
+      <pre>USART2_IRQHandler()
+  ├─ START_EIS        → gTaskStartEisQuery = true
+  ├─ START_SINGLE     → gTaskStartSingleEisQuery = true
+  ├─ STOP_EIS         → gTaskStopEisQuery = true
+  ├─ WAKE / WAKE_STACK→ gTaskWakeStackQuery = true
+  ├─ SET_FREQ/FREQ    → gTaskSetEisFreq = true
+  └─ SET_EIS_CONFIG   → gTaskSetEisFreq = true + gEisConfigOverride = 1
+
+main()
+  ├─ gTaskWakeStackQuery        → InitBmicStack()
+  ├─ gTaskStopEisQuery          → EIS_Stop()
+  ├─ gTaskStartSingleEisQuery   → is_scanning=0, update_frq=1
+  ├─ gTaskStartEisQuery         → is_scanning=1, update_frq=1
+  ├─ update_frq                 → SysTask_SetEisDFE()
+  │                                ├─ EIS_Para_Calculation()
+  │                                ├─ ApplyEisTableConfig()  // 扫频或自定义参数时覆盖
+  │                                ├─ EIS_Config()
+  │                                └─ EIS_PWM()
+  ├─ gTaskEisDFT                → SysTask_StartEisDFT() → EIS_SMART_FREEZE()
+  └─ gTaskEisRead               → SysTask_ReadEis()
+                                   ├─ EISCompleteCheck()
+                                   ├─ Read_EIS_CV()
+                                   ├─ Read_EIS_CC()
+                                   ├─ EIS_Z_Cal()
+                                   ├─ 打印 EIS_DATA
+                                   ├─ 扫频：推进 current_scan_idx 或结束
+                                   └─ 结束：EIS_Stop() + EIS_DONE</pre>
+    </section>
+
+    <section id="state-machine">
+      <h2>5. EIS 状态机和定时</h2>
+      <table>
+        <thead>
+          <tr><th>变量/状态</th><th>值</th><th>意义</th><th>谁设置</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>eis_run_flag</code></td><td>0</td><td>空闲/等待启动。</td><td>停止、扫频切换、初始化状态。</td></tr>
+          <tr><td><code>eis_run_flag</code></td><td>1</td><td>PWM/ADC/DFE 已启动，等待 DFE 稳定。</td><td><code>SysTask_SetEisDFE()</code></td></tr>
+          <tr><td><code>eis_run_flag</code></td><td>2</td><td>Smart Freeze/DFT 已触发，等待 DFT 完成。</td><td><code>SysTask_StartEisDFT()</code></td></tr>
+          <tr><td><code>eis_run_flag</code></td><td>3</td><td>到了读取时刻，但 BQ 还没完成；500 ms 后再读。</td><td><code>SysTask_ReadEis()</code> 中 <code>EISCompleteCheck()==0</code></td></tr>
+          <tr><td><code>eis_run_flag</code></td><td>4</td><td>本次测试结果已读取并处理。</td><td><code>SysTask_ReadEis()</code> 末尾。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>SysTick 触发规则</h3>
+      <table>
+        <thead>
+          <tr><th>条件</th><th>动作</th><th>目的</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>gEisSysTickCnt &gt;= gBQDev[0].dfe_wait_time * 1000</code> 且 <code>eis_run_flag == 1</code></td>
+            <td><code>gTaskEisDFT = true</code></td>
+            <td>DFE/HPF 稳定后再触发 DFT。</td>
+          </tr>
+          <tr>
+            <td><code>gEisSysTickCnt &gt;= gBQDev[0].dft_wait_time * 1000</code> 且 <code>eis_run_flag == 2</code></td>
+            <td><code>gTaskEisRead = true</code></td>
+            <td>DFT 采样时间足够后读取结果。</td>
+          </tr>
+          <tr>
+            <td><code>gEisSysTickCnt &gt;= 500</code> 且 <code>eis_run_flag == 3</code></td>
+            <td><code>gTaskEisRead = true</code></td>
+            <td>如果上次读时 BQ 还没完成，则 500 ms 后轮询。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sweep-table">
+      <h2>6. 扫频参数表</h2>
+      <p>扫频模式使用 <code>main.c</code> 中四个数组：<code>eis_scan_freqs[]</code>、<code>eis_scan_dft_lengths[]</code>、<code>eis_scan_hpf_hz[]</code>、<code>eis_scan_dsrs[]</code>。每个索引是一组参数。</p>
+      <div class="wide">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>目标频率 Hz</th><th>DFT_LEN</th><th>HPF Hz</th><th>DSR</th>
+            <th>Bin Hz</th><th>FREQ_IDX</th><th>实际频率 Hz</th><th>写入 DFT_LEN_REG</th><th>HPF_REG</th><th>DFE 等待 s</th><th>DFT 等待 s</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td>0.04</td><td>97656</td><td>0.04</td><td>10</td><td>0.00800002</td><td>5</td><td>0.04000010</td><td>96876</td><td>1048239</td><td>125</td><td>125</td></tr>
+          <tr><td>1</td><td>0.06</td><td>65104</td><td>0.06</td><td>10</td><td>0.01200003</td><td>5</td><td>0.06000015</td><td>64324</td><td>1048070</td><td>83</td><td>84</td></tr>
+          <tr><td>2</td><td>0.10</td><td>39063</td><td>0.10</td><td>10</td><td>0.01999974</td><td>5</td><td>0.09999872</td><td>38283</td><td>1047733</td><td>50</td><td>51</td></tr>
+          <tr><td>3</td><td>0.16</td><td>30518</td><td>0.16</td><td>8</td><td>0.03199956</td><td>5</td><td>0.15999779</td><td>29738</td><td>1047497</td><td>31</td><td>32</td></tr>
+          <tr><td>4</td><td>0.25</td><td>31250</td><td>0.25</td><td>5</td><td>0.05000000</td><td>5</td><td>0.25000000</td><td>30470</td><td>1047522</td><td>20</td><td>20</td></tr>
+          <tr><td>5</td><td>0.40</td><td>32552</td><td>0.40</td><td>3</td><td>0.08000020</td><td>5</td><td>0.40000102</td><td>31772</td><td>1047564</td><td>13</td><td>13</td></tr>
+          <tr><td>6</td><td>0.63</td><td>31002</td><td>0.63</td><td>2</td><td>0.12599994</td><td>5</td><td>0.62999968</td><td>30222</td><td>1047513</td><td>8</td><td>8</td></tr>
+          <tr><td>7</td><td>1.00</td><td>39063</td><td>1.00</td><td>1</td><td>0.19999744</td><td>5</td><td>0.99998720</td><td>38283</td><td>1047733</td><td>5</td><td>6</td></tr>
+          <tr><td>8</td><td>1.50</td><td>31250</td><td>1.50</td><td>1</td><td>0.25000000</td><td>6</td><td>1.50000000</td><td>30470</td><td>1047311</td><td>3</td><td>4</td></tr>
+          <tr><td>9</td><td>2.50</td><td>31250</td><td>2.50</td><td>1</td><td>0.25000000</td><td>10</td><td>2.50000000</td><td>30470</td><td>1046468</td><td>2</td><td>4</td></tr>
+          <tr><td>10</td><td>4.00</td><td>31250</td><td>4.00</td><td>1</td><td>0.25000000</td><td>16</td><td>4.00000000</td><td>30470</td><td>1045203</td><td>2</td><td>4</td></tr>
+          <tr><td>11</td><td>6.25</td><td>31250</td><td>6.25</td><td>1</td><td>0.25000000</td><td>25</td><td>6.25000000</td><td>30470</td><td>1043305</td><td>2</td><td>4</td></tr>
+          <tr><td>12</td><td>10.00</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>40</td><td>10.00000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>13</td><td>16.00</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>64</td><td>16.00000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>14</td><td>25.25</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>101</td><td>25.25000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>15</td><td>40.00</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>160</td><td>40.00000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>16</td><td>63.50</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>254</td><td>63.50000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>17</td><td>98.00</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>392</td><td>98.00000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>18</td><td>151.75</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>607</td><td>151.75000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>19</td><td>235.00</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>940</td><td>235.00000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>20</td><td>363.75</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>1455</td><td>363.75000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>21</td><td>563.00</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>2252</td><td>563.00000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>22</td><td>871.50</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>3486</td><td>871.50000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>23</td><td>1348.62</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>5394</td><td>1348.50000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+          <tr><td>24</td><td>2087.29</td><td>31250</td><td>10.00</td><td>1</td><td>0.25000000</td><td>8349</td><td>2087.25000000</td><td>30470</td><td>1040143</td><td>2</td><td>4</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="small">说明：<code>DFT_LEN_REG = DFT_LEN - 780</code>；<code>FREQ_IDX = round(freq / bin)</code>；<code>实际频率 = bin * FREQ_IDX</code>；<code>bin = 7812.5 / DSR / DFT_LEN</code>。</p>
+    </section>
+
+    <section id="calc">
+      <h2>7. 参数计算公式</h2>
+      <div class="pipeline">
+        <div class="pipe"><div class="icon">f</div><b>目标频率</b><span><code>freq</code></span></div>
+        <div class="pipe"><div class="icon">↓</div><b>降采样</b><span><code>DSR</code></span></div>
+        <div class="pipe"><div class="icon">N</div><b>DFT 长度</b><span><code>dft_len - 780</code></span></div>
+        <div class="pipe"><div class="icon">k</div><b>频率索引</b><span><code>FREQ_IDX</code></span></div>
+        <div class="pipe"><div class="icon">H</div><b>HPF 系数</b><span><code>HPF_REG</code></span></div>
+      </div>
+      <h3>7.1 默认自动计算：<code>EIS_Para_Calculation()</code></h3>
+      <table>
+        <thead>
+          <tr><th>参数</th><th>当前公式/规则</th><th>写入位置</th><th>意义</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>hpf_corner</code></td>
+            <td><code>freq &gt; 10 ? 10 : freq</code></td>
+            <td>不直接写入；用于计算 HPF 系数和 DFE 等待时间。</td>
+            <td>高通滤波器截止频率。低频时跟随测试频率，高于 10 Hz 后固定 10 Hz。</td>
+          </tr>
+          <tr>
+            <td><code>eis_dsr</code></td>
+            <td><code>ceil((7812.5 / freq * 5) / 32500)</code>，最大限制 10。</td>
+            <td><code>EIS_DFE_CTRL26.eis_dsr = eis_dsr - 1</code></td>
+            <td>降采样倍率。低频为了拉长观测时间，通常需要更大 DSR。</td>
+          </tr>
+          <tr>
+            <td><code>dft_len</code></td>
+            <td>低频超过最大长度时按采样率/频率/5bin 计算；否则取约 31250 点。</td>
+            <td><code>EIS_COM_CTRL2/3/4 = dft_len - 780</code></td>
+            <td>DFT 计算长度。当前写寄存器前扣除了 BQ 内部 780 点固定延迟。</td>
+          </tr>
+          <tr>
+            <td><code>bin_size</code></td>
+            <td><code>7812.5 / eis_dsr / dft_len</code></td>
+            <td>不直接写；用于算 <code>freq_idx</code>。</td>
+            <td>DFT 频率分辨率。</td>
+          </tr>
+          <tr>
+            <td><code>freq_idx</code></td>
+            <td><code>round(freq / bin_size)</code></td>
+            <td><code>EIS_COM_CTRL5/6/7</code></td>
+            <td>BQ DFT/PWM 目标频率索引。实际频率只能落在 bin 上。</td>
+          </tr>
+          <tr>
+            <td><code>hpf_coefficient</code></td>
+            <td><code>1 - 2*pi*hpf_corner / (7812.5 / eis_dsr)</code></td>
+            <td>先换成寄存器整数，再写 <code>EIS_DFE_CTRL5/6/7</code></td>
+            <td>数字高通滤波器系数。</td>
+          </tr>
+          <tr>
+            <td><code>hpf_coefficent_reg</code></td>
+            <td><code>round(hpf_coefficient / 0.0000009536743)</code></td>
+            <td><code>EIS_DFE_CTRL5/6/7</code></td>
+            <td>HPF 系数的 20 bit 左右整数化结果。</td>
+          </tr>
+          <tr>
+            <td><code>dfe_wait_time</code></td>
+            <td><code>max(round(5 / hpf_corner), 2)</code> 秒</td>
+            <td>不写 BQ；给 MCU SysTick 用。</td>
+            <td>等待 HPF/DFE 稳定。频率越低，等待越久。</td>
+          </tr>
+          <tr>
+            <td><code>dft_wait_time</code></td>
+            <td><code>ceil(dft_len * eis_dsr / 7812.5)</code> 秒</td>
+            <td>不写 BQ；给 MCU SysTick 用。</td>
+            <td>等待 BQ 采够 DFT 数据。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>7.2 扫频表/上位机覆盖：<code>ApplyEisTableConfig()</code></h3>
+      <p>当前扫频不是完全用 <code>EIS_Para_Calculation()</code> 的默认结果，而是先调用它，再用扫频表里的 <code>dft_len</code>、<code>hpf_hz</code>、<code>dsr</code> 覆盖。单频模式如果上位机发送 <code>SET_EIS_CONFIG</code>，也会走同样覆盖逻辑。</p>
+      <pre>SysTask_SetEisDFE()
+  EIS_Para_Calculation(...)
+  if (table_dft_len > 0 && table_hpf_hz > 0 && table_dsr > 0)
+      ApplyEisTableConfig(...)  // 覆盖 DFT_LEN / FREQ_IDX / HPF / DSR / 等待时间</pre>
+    </section>
+
+    <section id="bq-init">
+      <h2>8. 唤醒/初始化 BQ 写入</h2>
+      <p><code>WAKE</code> 命令触发 <code>InitBmicStack()</code>。注意：这里不会调用 <code>EIS_Stop()</code>，因为 BQ 可能还没醒，提前写 EIS 寄存器会影响唤醒链路。</p>
+      <pre>InitBmicStack()
+  WakeStackDevice()
+  AutoAddress()             // TOTALBOARDS > 1 时
+  DisableTimeout()
+  PWM_CRYSTAL()
+  NVM_Register_Configuration()
+  BQ7982X_SetGpio20High()</pre>
+
+      <h3>8.1 <code>PWM_CRYSTAL()</code> 写入</h3>
+      <table>
+        <thead>
+          <tr><th>寄存器</th><th>地址</th><th>字段/值</th><th>解释</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>DEV_CONF3</code></td>
+            <td><code>0x0004</code></td>
+            <td><code>crystal_en = 1</code>（设备 0）；其他设备为 0。</td>
+            <td>启用 BQ 晶振/HFO 晶振相关模式。EIS PWM 使用的 32 MHz 时钟来自 BQ 内部 HFO/晶振路径，不是 MCU 直接输出 32 MHz 给 BQ。</td>
+          </tr>
+          <tr>
+            <td><code>CONTROL1</code></td>
+            <td><code>0x0204</code></td>
+            <td><code>0x04</code></td>
+            <td>当前代码用于 BQ 唤醒/睡眠唤醒相关控制。写完等待，然后调用 <code>SleepWakeStackDevice()</code>。</td>
+          </tr>
+          <tr>
+            <td><code>DEV_STAT2</code></td>
+            <td><code>0x0735</code></td>
+            <td><span class="tag read">读</span></td>
+            <td>读取晶振/设备状态，用来确认晶振相关状态。</td>
+          </tr>
+          <tr>
+            <td><code>FAULT_SYS1</code></td>
+            <td><code>0x0745</code></td>
+            <td><span class="tag read">读</span></td>
+            <td>读取系统故障。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>8.2 <code>NVM_Register_Configuration()</code> 中和 EIS 强相关的写入</h3>
+      <table>
+        <thead>
+          <tr><th>寄存器</th><th>地址</th><th>当前写入字段/值</th><th>解释</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>GPIO_CONF4</code></td><td>GPIO 配置块</td><td><code>eis_pwm_en = 1</code></td><td>把相关 GPIO 复用/允许为 EIS PWM 输出。没有这个配置，BQ 内部 PWM 即使启动也可能没有正确输出到外部引脚。</td></tr>
+          <tr><td><code>SMART_FREEZE_CONF</code></td><td><code>0x003E</code></td><td>先写 <code>slot_len=0b11</code>, <code>samp_len=0b001</code>；后面又写 <code>slot_len=0b10</code>, <code>samp_len=0b111</code></td><td>Smart Freeze 的 slot 长度和采样长度。当前最终生效的是后一次写入：<code>slot_len=0b10</code>、<code>samp_len=0b111</code>。</td></tr>
+          <tr><td><code>ADC_CTRL5..ADC_CTRL1</code></td><td><code>0x0243..0x0247</code></td><td><code>csadc_mode=1</code>, <code>adc_mode=0b10</code>, <code>adc_go=1</code>, <code>diag1_ana_sel=1</code>, <code>diag_meas_go=1</code></td><td>初始化 ADC/CSADC 相关模式。后续真正每次 EIS 启动时，<code>EIS_PWM()</code> 还会重新写 ADC_CTRL3/4。</td></tr>
+          <tr><td><code>EIS_DISABLE1..4</code></td><td><code>0x0500..0x0503</code></td><td><code>0x00000000</code></td><td>使能所有通道的 EIS 处理。若某 bit 置 1，可能会禁用对应通道。</td></tr>
+          <tr><td><code>EIS_COM_CTRL1..8</code></td><td><code>0x0510..0x0517</code></td><td><code>cs_mode=1</code>，其余清 0</td><td>NVM 初始化阶段的默认值。正式开始 EIS 时 <code>EIS_Config()</code> 会把 <code>cs_mode=0</code>，即启用 CS EIS 处理。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL1..8</code></td><td><code>0x0540..0x0547</code></td><td><code>vc_amph=0xA0</code>, <code>cs_amph=0xA0</code>，其余默认 0</td><td>初始化 VC/CS 前端增益；正式测量时 <code>EIS_Config()</code> 会再次写入。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL9..24</code></td><td><code>0x0548..0x0557</code></td><td>全 0</td><td>清 DCC 相关参数。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL25..26</code></td><td><code>0x0558..0x0559</code></td><td><code>eis_dfe_mode=0b01</code></td><td>初始化 DFE 模式。正式启动时 <code>EIS_PWM()</code> 写 <code>eis_dfe_go=1</code>。</td></tr>
+          <tr><td><code>EIS_DFT_CTRL1..4</code></td><td><code>0x0570..0x0573</code></td><td><code>phase=0</code>, <code>eis_dft_mode=0b10</code></td><td>DFT 相位偏移为 0，DFT 模式设为当前代码使用的 EIS DFT 模式。</td></tr>
+          <tr><td><code>EIS_PWM_CTRL1..8</code></td><td><code>0x0580..0x0587</code></td><td>全 0</td><td>初始化 PWM 控制块。正式测量时 <code>EIS_Config()</code> 会写幅度、相位等。</td></tr>
+          <tr><td><code>EIS_PWM_CTRL9..15</code></td><td><code>0x0588..0x058E</code></td><td><code>eis_pwm_mode=0b10</code></td><td>初始化 PWM 模式。正式配置会由 <code>EIS_Config()</code>/<code>EIS_PWM()</code> 再次覆盖。</td></tr>
+          <tr><td><code>EIS_MISC_CTRL</code></td><td><code>0x05A0</code></td><td><code>eis_res_sel=0</code>, <code>eis_res_tone=0</code></td><td>默认选择读取实部、Tone1。读取结果时会在实部/虚部之间切换。</td></tr>
+          <tr><td><code>PLL_SYNC_CTRL1</code></td><td><code>0x022A</code></td><td>设备 0：<code>pll_dev_mode=0b010</code>；其他设备：<code>pll_dev_mode=0b001</code>, <code>pll_sync_dir=1</code></td><td>配置 PLL 同步角色。单板 <code>TOTALBOARDS=1</code> 时主要是设备 0。</td></tr>
+          <tr><td><code>DIG_SYNC_CONF1/2</code></td><td><code>0x003C/0x003D</code></td><td><code>addrh=0b00000010</code>, <code>addrl=0b00110001</code></td><td>数字同步相关地址配置。</td></tr>
+          <tr><td><code>DIG_SYNC_CTRL3</code></td><td><code>0x0230</code></td><td>设备 0：<code>sync_dev_mode=0b10</code>, <code>sync_dev_go=1</code></td><td>数字同步控制，和多设备同步相关。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="eis-config">
+      <h2>9. <code>EIS_Config()</code> 写入参数</h2>
+      <p><code>EIS_Config()</code> 是每个频点正式启动前最关键的配置函数。它会把 PWM、DFE、DFT、COM 参数写进 BQ。</p>
+      <div class="reg-map">
+        <div class="reg-block vc-green">
+          <span class="label" style="background:#f0f3ee;color:#60786b;border:1px solid #d8ddd5;">PWM 生成</span>
+          <ul>
+            <li>幅度 <code>AMP1</code></li>
+            <li>相位 <code>PHASE1</code></li>
+            <li>DC 偏置 <code>DC_SHIFT</code></li>
+            <li>载波分频 <code>PWM_DIVISOR</code></li>
+          </ul>
+        </div>
+        <div class="reg-block vc-amber">
+          <span class="label" style="background:#eef3f5;color:#5f7380;border:1px solid #d1dbe0;">DFE 前端</span>
+          <ul>
+            <li>VC/CS 增益</li>
+            <li>HPF 系数</li>
+            <li>DCC 清零</li>
+            <li>DSR 降采样</li>
+          </ul>
+        </div>
+        <div class="reg-block vc-violet">
+          <span class="label" style="background:#f2eff3;color:#756780;border:1px solid #d9d1de;">DFT 计算</span>
+          <ul>
+            <li>DFT 模式</li>
+            <li>DFT 长度</li>
+            <li>相位偏移</li>
+            <li>频率索引</li>
+          </ul>
+        </div>
+        <div class="reg-block vc-rose">
+          <span class="label" style="background:#f5ebe8;color:#94675d;border:1px solid #e1cbc5;">动作控制</span>
+          <ul>
+            <li>GO 位清状态</li>
+            <li>PWM 启动</li>
+            <li>ADC 启动</li>
+            <li>DFE 启动</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>9.1 预清状态</h3>
+      <table>
+        <thead><tr><th>顺序</th><th>寄存器</th><th>字段/值</th><th>解释</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>EIS_DFT_CTRL4</code> <code>0x0573</code></td><td><code>eis_dft_go = 1</code></td><td>重启/触发 DFT 控制动作，目的是清除上一次 DFT 数据就绪标志。</td></tr>
+          <tr><td>2</td><td><code>ADC_CTRL3</code> <code>0x0245</code></td><td><code>adc_go = 1</code></td><td>重启 ADC 控制动作，目的是清除上一次 ADC 数据就绪状态。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>9.2 PWM 配置</h3>
+      <table>
+        <thead><tr><th>寄存器</th><th>字段/值</th><th>写入值来源</th><th>解释</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><code>EIS_PWM_CTRL1</code> <code>0x0580</code></td>
+            <td><code>amp1 = 0x4C</code></td>
+            <td>固定值</td>
+            <td>激励 PWM 幅度。按源码注释公式 <code>AMP1/256</code>，约 29.69% 满幅。它影响外部激励电流大小，但实际电流还由硬件电路决定。</td>
+          </tr>
+          <tr>
+            <td><code>EIS_PWM_CTRL6</code> <code>0x0585</code></td>
+            <td><code>phase1 = 0</code></td>
+            <td>固定值</td>
+            <td>Tone1 的相位偏移。当前为 0，即不加相位偏移。</td>
+          </tr>
+          <tr>
+            <td><code>EIS_PWM_CTRL11/12</code> <code>0x058A/0x058B</code></td>
+            <td><code>dc_shift = 0x800</code></td>
+            <td><code>dc_shifth=0b1000</code>, <code>dc_shiftl=0</code></td>
+            <td>PWM 正弦波中心偏置。<code>0x800/4096=50%</code>，让波形围绕中点上下摆动。</td>
+          </tr>
+          <tr>
+            <td><code>EIS_PWM_CTRL13/14</code> <code>0x058C/0x058D</code></td>
+            <td><code>pwm_divisor = 0x0380</code></td>
+            <td>固定值，当前已改为 31.25 kHz</td>
+            <td>BQ PWM 载波分频。当前公式：<code>fpwm = 32MHz / (PWM_DIVISOR + 128)</code>，所以 <code>32MHz/(0x380+128)=31.25kHz</code>。之前如果是 <code>0x0000</code>，就是 <code>32MHz/128=250kHz</code>。</td>
+          </tr>
+          <tr>
+            <td><code>EIS_PWM_CTRL15</code> <code>0x058E</code></td>
+            <td><code>eis_pwm_mode = 0b01</code></td>
+            <td>固定值</td>
+            <td>先把 PWM 放到配置/单音相关模式。真正启动输出在 <code>EIS_PWM()</code> 中改成 <code>0b10</code> 并写 <code>eis_pwm_go=1</code>。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>9.3 DFE 配置</h3>
+      <table>
+        <thead><tr><th>寄存器</th><th>字段/值</th><th>来源</th><th>解释</th></tr></thead>
+        <tbody>
+          <tr><td><code>EIS_DFE_CTRL1/2</code> <code>0x0540/0x0541</code></td><td><code>vc_amp = 0xA000</code></td><td><code>vc_amph=0b10100000</code>, <code>vc_ampl=0</code></td><td>电压通道前端增益。源码注释为 5 V/V，用于放大电芯电压交流响应。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL3/4</code> <code>0x0542/0x0543</code></td><td><code>cs_amp = 0xA000</code></td><td><code>cs_amph=0b10100000</code>, <code>cs_ampl=0</code></td><td>电流通道前端增益。源码注释为 5 V/V，用于放大分流电阻/电流采样交流响应。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL5/6/7</code> <code>0x0544..0x0546</code></td><td><code>hpf_coef = hpf_coefficent_reg</code></td><td>由 <code>EIS_Para_Calculation()</code> 或 <code>ApplyEisTableConfig()</code> 计算</td><td>数字高通滤波器系数。三个字节写入，高字节只用低 4 bit。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL8/9/10</code> <code>0x0547..0x0549</code></td><td><code>vc_dcc_scale = 0</code></td><td>固定清 0</td><td>电压通道 DCC 缩放因子。当前关闭/不使用。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL11/12/13</code> <code>0x054A..0x054C</code></td><td><code>vc_dcc_lpf = 0</code></td><td>固定清 0</td><td>电压通道 DCC 低通滤波参数。当前关闭/不使用。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL14/15/16</code> <code>0x054D..0x054F</code></td><td><code>vc_dcc_dc = 0</code></td><td>固定清 0</td><td>电压通道 DCC 直流抵消项。当前清 0。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL17/18/19</code> <code>0x0550..0x0552</code></td><td><code>cs_dcc_scale = 0</code></td><td>固定清 0</td><td>电流通道 DCC 缩放因子。当前关闭/不使用。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL20/21/22</code> <code>0x0553..0x0555</code></td><td><code>cs_dcc_lpf = 0</code></td><td>固定清 0</td><td>电流通道 DCC 低通滤波参数。当前关闭/不使用。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL23/24/25</code> <code>0x0556..0x0558</code></td><td><code>cs_dcc_dc = 0</code></td><td>固定清 0</td><td>电流通道 DCC 直流抵消项。当前清 0。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL26</code> <code>0x0559</code></td><td><code>eis_dfe_mode = 0b01</code>, <code>eis_dsr = dsr - 1</code></td><td>mode 固定；DSR 动态</td><td>设置 DFE 工作模式和降采样倍率。当前代码连续写 3 次，可能是为了确保模式生效或满足时序。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>9.4 DFT / COM 配置</h3>
+      <table>
+        <thead><tr><th>寄存器</th><th>字段/值</th><th>来源</th><th>解释</th></tr></thead>
+        <tbody>
+          <tr><td><code>EIS_DFT_CTRL4</code> <code>0x0573</code></td><td><code>eis_dft_mode = 0b10</code>, <code>eis_dft_go = 0</code></td><td>固定值</td><td>设置 DFT 工作模式，但此时不直接启动 DFT。真正触发通过 Smart Freeze。</td></tr>
+          <tr><td><code>EIS_COM_CTRL2/3/4</code> <code>0x0511..0x0513</code></td><td><code>dft_len_reg = dft_len - 780</code></td><td>动态计算/扫频表</td><td>写入 BQ 的 DFT 长度。当前代码在写寄存器前扣除 780 点固定内部延迟。</td></tr>
+          <tr><td><code>EIS_COM_CTRL1</code> <code>0x0510</code></td><td><code>cs_mode = 0</code>, <code>num_tones = 0</code></td><td>固定值</td><td><code>cs_mode=0</code> 表示启用 CS EIS 处理；<code>num_tones=0</code> 表示单 tone。</td></tr>
+          <tr><td><code>EIS_DFT_CTRL1/2/3</code> <code>0x0570..0x0572</code></td><td><code>phase = 0</code></td><td>固定值</td><td>DFT 相位偏移。当前不加偏移。</td></tr>
+          <tr><td><code>EIS_COM_CTRL5/6/7</code> <code>0x0514..0x0516</code></td><td><code>freq_idx = round(freq / bin)</code></td><td>动态计算/扫频表</td><td>目标频率索引。BQ 按这个索引提取目标频点的 DFT 结果。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="eis-pwm">
+      <h2>10. <code>EIS_PWM()</code> 启动参数</h2>
+      <p><code>EIS_Config()</code> 只是把参数写好；<code>EIS_PWM()</code> 才真正打开激励和采样链路。</p>
+      <table>
+        <thead><tr><th>顺序</th><th>寄存器</th><th>字段/值</th><th>解释</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>EIS_PWM_CTRL15</code> <code>0x058E</code></td><td><code>eis_pwm_mode = 0b10</code>, <code>eis_pwm_go = 1</code></td><td>启动 BQ 内部 EIS PWM。此时外部会出现 PWM 载波/激励相关输出。</td></tr>
+          <tr><td>2</td><td><code>ADC_CTRL4</code> <code>0x0244</code></td><td><code>csadc_mode = 1</code></td><td>打开/配置电流采样 ADC。</td></tr>
+          <tr><td>3</td><td><code>ADC_CTRL3</code> <code>0x0245</code></td><td><code>adc_mode = 0b10</code>, <code>adc_go = 1</code></td><td>打开/启动电压 ADC 采样。</td></tr>
+          <tr><td>4</td><td><code>EIS_DFE_CTRL26</code> <code>0x0559</code></td><td><code>eis_dfe_go = 1</code></td><td>触发 DFE 开始处理。</td></tr>
+          <tr><td>5</td><td><code>EIS_DFE_CTRL26</code> <code>0x0559</code></td><td><code>eis_dfe_mode = 0b01</code>, <code>eis_dfe_go = 1</code></td><td>确认 DFE 模式并再次触发 GO。</td></tr>
+        </tbody>
+      </table>
+      <div class="warn">
+        当前代码中 <code>EIS_PWM()</code> 写 <code>EIS_PWM_CTRL15</code> 时固定使用 <code>FRMWRT_SGL_W</code>，不是传入的 <code>Writetype</code>。在 <code>TOTALBOARDS=1</code> 时通常问题不大；如果以后多 BQ 堆叠，要重新确认这个写法。
+      </div>
+    </section>
+
+    <section id="smart-freeze">
+      <h2>11. Smart Freeze / DFT 触发</h2>
+      <p>DFE 启动后，MCU 等待 <code>dfe_wait_time</code> 秒，再调用 <code>SysTask_StartEisDFT()</code>，它内部调用 <code>EIS_SMART_FREEZE()</code>。</p>
+      <table>
+        <thead><tr><th>步骤</th><th>寄存器</th><th>字段/值</th><th>解释</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>SMART_FREEZE_STAT1..3</code> <code>0x0786..0x0788</code></td><td><span class="tag read">读</span> <code>slot_count</code></td><td>读取当前 Smart Freeze slot 计数。</td></tr>
+          <tr><td>2</td><td><code>SMART_FREEZE_CTRL1</code> <code>0x0236</code></td><td><code>slot_sel = slot_count - 1</code></td><td>选择触发 slot，让 DFT 在指定时间点冻结/触发。</td></tr>
+          <tr><td>3</td><td><code>SMART_FREEZE_CTRL2</code> <code>0x0237</code></td><td><code>sf_mode = 0b00</code>, <code>sf_go = 1</code></td><td>先写一次 Smart Freeze 控制动作，类似复位/预备。</td></tr>
+          <tr><td>4</td><td><code>SMART_FREEZE_CTRL2</code> <code>0x0237</code></td><td><code>sf_mode = 0b10</code>, <code>sf_go = 1</code></td><td>正式启动 Smart Freeze，由它触发 DFT。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="read-result">
+      <h2>12. 读取结果和计算阻抗</h2>
+      <h3>12.1 完成检查</h3>
+      <table>
+        <thead><tr><th>寄存器</th><th>地址</th><th>字段</th><th>判断逻辑</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><code>EIS_STAT</code></td>
+            <td><code>0x0A00</code></td>
+            <td><code>eis_dfe_run</code>, <code>eis_dft_run</code>, <code>eis_dft_rdy</code></td>
+            <td>如果 DFE 还在跑、DFT 还在跑、或者 DFT 结果未 ready，则返回 0，MCU 500 ms 后再读。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>12.2 读取 CV 电压结果：<code>Read_EIS_CV()</code></h3>
+      <table>
+        <thead><tr><th>动作</th><th>寄存器</th><th>字段/值</th><th>解释</th></tr></thead>
+        <tbody>
+          <tr><td>选择实部</td><td><code>EIS_MISC_CTRL</code> <code>0x05A0</code></td><td><code>eis_res_sel = 0</code>, <code>eis_res_tone = 0</code></td><td>选择读取 Tone1 的实部。</td></tr>
+          <tr><td>读电压实部</td><td><code>EIS_VC1_HI</code> 起始 <code>0x0A13</code></td><td>每通道 3 字节</td><td>读 VC1 到 VCn 的 24 bit 补码 EIS 电压实部。</td></tr>
+          <tr><td>选择虚部</td><td><code>EIS_MISC_CTRL</code> <code>0x05A0</code></td><td><code>eis_res_sel = 1</code>, <code>eis_res_tone = 0</code></td><td>选择读取 Tone1 的虚部。</td></tr>
+          <tr><td>读电压虚部</td><td><code>EIS_VC1_HI</code> 起始 <code>0x0A13</code></td><td>每通道 3 字节</td><td>读 VC1 到 VCn 的 24 bit 补码 EIS 电压虚部。</td></tr>
+        </tbody>
+      </table>
+      <p>电压解码公式：</p>
+      <pre>VC = raw_24bit_signed
+     * 4096 / 8388608
+     * (1 / 0.30517)
+     * (1 / vc_amp_comp)
+     / dft_len_struct
+     * 2
+
+当前 vc_amp_comp = 5</pre>
+
+      <h3>12.3 读取 CC 电流结果：<code>Read_EIS_CC()</code></h3>
+      <table>
+        <thead><tr><th>动作</th><th>寄存器</th><th>字段/值</th><th>解释</th></tr></thead>
+        <tbody>
+          <tr><td>选择实部</td><td><code>EIS_MISC_CTRL</code> <code>0x05A0</code></td><td><code>eis_res_sel = 0</code>, <code>eis_res_tone = 0</code></td><td>选择读取 Tone1 的电流实部。</td></tr>
+          <tr><td>读电流实部</td><td><code>EIS_CS_HI</code> <code>0x0A10</code></td><td>每通道 3 字节</td><td>读 CS 的 24 bit 补码 EIS 电流实部。</td></tr>
+          <tr><td>选择虚部</td><td><code>EIS_MISC_CTRL</code> <code>0x05A0</code></td><td><code>eis_res_sel = 1</code>, <code>eis_res_tone = 0</code></td><td>选择读取 Tone1 的电流虚部。</td></tr>
+          <tr><td>读电流虚部</td><td><code>EIS_CS_HI</code> <code>0x0A10</code></td><td>每通道 3 字节</td><td>读 CS 的 24 bit 补码 EIS 电流虚部。</td></tr>
+          <tr><td>读 Smart Freeze 状态</td><td><code>SMART_FREEZE_STAT1..3</code></td><td><span class="tag read">读</span></td><td>函数末尾再读一次状态。</td></tr>
+        </tbody>
+      </table>
+      <p>电流解码公式：</p>
+      <pre>CS = raw_24bit_signed
+     * cs_direction
+     * 5120 / 8388608
+     * (1 / 0.3725)
+     * (1 / cs_amp_comp)
+     / dft_len_struct
+     * 2
+
+当前 cs_direction = -1
+当前 cs_amp_comp = 5</pre>
+
+      <h3>12.4 阻抗计算：<code>EIS_Z_Cal()</code></h3>
+      <p>代码按复数除法计算阻抗：</p>
+      <pre>V = Vreal + j*Vimag
+I = Ireal + j*Iimag
+Z = V / I
+
+Zreal = (Vreal*Ireal + Vimag*Iimag) / (Ireal^2 + Iimag^2)
+Zimag = (Vimag*Ireal - Vreal*Iimag) / (Ireal^2 + Iimag^2)
+Zmag  = sqrt(Zreal^2 + Zimag^2)
+Zpha  = atan2(Zimag, Zreal)</pre>
+
+      <h3>12.5 上报格式</h3>
+      <pre>扫频：
+EIS_DATA,频率,本频点第几次测试,通道号,实部,虚部,幅值,相位
+
+单频：
+EIS_DATA,频率,1,通道号,实部,虚部,幅值,相位
+
+结束：
+EIS_DONE</pre>
+    </section>
+
+    <section id="stop">
+      <h2>13. 停止 EIS</h2>
+      <p><code>EIS_Stop()</code> 会在三种情况下调用：</p>
+      <ul>
+        <li>上位机发送 <code>STOP_EIS</code>；</li>
+        <li>扫频全部频点完成；</li>
+        <li>单频测试完成。</li>
+      </ul>
+      <div class="pipeline">
+        <div class="pipe"><div class="icon">1</div><b>停 DFE</b><span><code>eis_dfe_mode=0</code></span></div>
+        <div class="pipe"><div class="icon">2</div><b>关 CSADC</b><span><code>csadc_mode=0</code></span></div>
+        <div class="pipe"><div class="icon">3</div><b>关 ADC</b><span><code>adc_mode=0</code></span></div>
+        <div class="pipe"><div class="icon">4</div><b>关 PWM</b><span><code>eis_pwm_mode=0</code></span></div>
+        <div class="pipe"><div class="icon">✓</div><b>无载波</b><span>测试结束</span></div>
+      </div>
+      <table>
+        <thead><tr><th>顺序</th><th>寄存器</th><th>字段/值</th><th>目的</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>EIS_DFE_CTRL26</code> <code>0x0559</code></td><td><code>eis_dfe_mode = 0b00</code>, <code>eis_dfe_go = 1</code></td><td>停止 DFE。GO 是动作位，mode=0 后写 GO=1 才会让 BQ 采样停止配置。</td></tr>
+          <tr><td>2</td><td><code>ADC_CTRL4</code> <code>0x0244</code></td><td><code>csadc_mode = 0</code></td><td>关闭电流采样 ADC 模式。</td></tr>
+          <tr><td>3</td><td><code>ADC_CTRL3</code> <code>0x0245</code></td><td><code>adc_mode = 0b00</code>, <code>adc_go = 1</code></td><td>停止/退出 ADC EIS 采样模式。</td></tr>
+          <tr><td>4</td><td><code>EIS_PWM_CTRL15</code> <code>0x058E</code></td><td><code>eis_pwm_mode = 0b00</code>, <code>eis_pwm_go = 1</code></td><td>关闭 BQ 内部 EIS PWM，避免测试结束后仍有 31.25 kHz 载波和激励。</td></tr>
+        </tbody>
+      </table>
+      <div class="ok">
+        当前唤醒分支不会调用 <code>EIS_Stop()</code>。这是正确的，因为 BQ 没醒之前不能先写 EIS/ADC/PWM 寄存器。
+      </div>
+    </section>
+
+    <section id="register-cheatsheet">
+      <h2>14. BQ 寄存器速查表</h2>
+      <div class="wide">
+      <table>
+        <thead><tr><th>寄存器</th><th>地址</th><th>当前代码写/读</th><th>关键字段</th><th>本工程用途</th></tr></thead>
+        <tbody>
+          <tr><td><code>DEV_CONF3</code></td><td><code>0x0004</code></td><td><span class="tag write">写</span></td><td><code>crystal_en</code></td><td>启用 BQ 晶振/HFO 晶振路径。</td></tr>
+          <tr><td><code>CONTROL1</code></td><td><code>0x0204</code></td><td><span class="tag write">写</span></td><td><code>0x04</code>, <code>0x08</code>, soft reset 等</td><td>唤醒/关闭/复位相关控制。</td></tr>
+          <tr><td><code>ADC_CTRL4</code></td><td><code>0x0244</code></td><td><span class="tag write">写</span></td><td><code>csadc_mode</code></td><td>开/关电流采样 ADC。</td></tr>
+          <tr><td><code>ADC_CTRL3</code></td><td><code>0x0245</code></td><td><span class="tag write">写</span></td><td><code>adc_mode</code>, <code>adc_go</code></td><td>开/关电压 ADC，清 ready 标志。</td></tr>
+          <tr><td><code>SMART_FREEZE_CONF</code></td><td><code>0x003E</code></td><td><span class="tag write">写</span></td><td><code>slot_len</code>, <code>samp_len</code></td><td>配置 Smart Freeze 采样窗口。</td></tr>
+          <tr><td><code>SMART_FREEZE_CTRL1</code></td><td><code>0x0236</code></td><td><span class="tag write">写</span></td><td><code>slot_sel</code></td><td>设置触发 slot。</td></tr>
+          <tr><td><code>SMART_FREEZE_CTRL2</code></td><td><code>0x0237</code></td><td><span class="tag write">写</span></td><td><code>sf_mode</code>, <code>sf_go</code></td><td>触发 Smart Freeze/DFT。</td></tr>
+          <tr><td><code>EIS_DISABLE1..4</code></td><td><code>0x0500..0x0503</code></td><td><span class="tag write">写</span></td><td>通道禁用位</td><td>当前写 0，启用所有 EIS 通道。</td></tr>
+          <tr><td><code>EIS_COM_CTRL1</code></td><td><code>0x0510</code></td><td><span class="tag write">写</span></td><td><code>cs_mode</code>, <code>num_tones</code></td><td>启用 CS EIS；设置单 tone。</td></tr>
+          <tr><td><code>EIS_COM_CTRL2..4</code></td><td><code>0x0511..0x0513</code></td><td><span class="tag write">写</span></td><td><code>dft_len</code></td><td>写 DFT 长度寄存器值。</td></tr>
+          <tr><td><code>EIS_COM_CTRL5..7</code></td><td><code>0x0514..0x0516</code></td><td><span class="tag write">写</span></td><td><code>freq_idx1</code></td><td>写目标频率索引。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL1..4</code></td><td><code>0x0540..0x0543</code></td><td><span class="tag write">写</span></td><td><code>vc_amp</code>, <code>cs_amp</code></td><td>设置电压/电流前端增益。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL5..7</code></td><td><code>0x0544..0x0546</code></td><td><span class="tag write">写</span></td><td><code>hpf_coef</code></td><td>写 HPF 系数。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL8..25</code></td><td><code>0x0547..0x0558</code></td><td><span class="tag write">写</span></td><td>DCC 相关字段</td><td>当前全部清 0。</td></tr>
+          <tr><td><code>EIS_DFE_CTRL26</code></td><td><code>0x0559</code></td><td><span class="tag write">写</span></td><td><code>eis_dsr</code>, <code>eis_dfe_mode</code>, <code>eis_dfe_go</code></td><td>设置 DSR、DFE 模式，启动/停止 DFE。</td></tr>
+          <tr><td><code>EIS_DFT_CTRL1..3</code></td><td><code>0x0570..0x0572</code></td><td><span class="tag write">写</span></td><td><code>phase</code></td><td>DFT 相位偏移，当前 0。</td></tr>
+          <tr><td><code>EIS_DFT_CTRL4</code></td><td><code>0x0573</code></td><td><span class="tag write">写</span></td><td><code>eis_dft_mode</code>, <code>eis_dft_go</code></td><td>配置 DFT 模式，清/触发 DFT 动作。</td></tr>
+          <tr><td><code>EIS_PWM_CTRL1</code></td><td><code>0x0580</code></td><td><span class="tag write">写</span></td><td><code>amp1</code></td><td>设置 EIS PWM 激励幅度。</td></tr>
+          <tr><td><code>EIS_PWM_CTRL6</code></td><td><code>0x0585</code></td><td><span class="tag write">写</span></td><td><code>phase1</code></td><td>设置 PWM tone 相位，当前 0。</td></tr>
+          <tr><td><code>EIS_PWM_CTRL11/12</code></td><td><code>0x058A/0x058B</code></td><td><span class="tag write">写</span></td><td><code>dc_shift</code></td><td>设置 PWM DC 偏置，当前 50%。</td></tr>
+          <tr><td><code>EIS_PWM_CTRL13/14</code></td><td><code>0x058C/0x058D</code></td><td><span class="tag write">写</span></td><td><code>pwm_divisor</code></td><td>设置 PWM 载波频率，当前 31.25 kHz。</td></tr>
+          <tr><td><code>EIS_PWM_CTRL15</code></td><td><code>0x058E</code></td><td><span class="tag write">写</span></td><td><code>eis_pwm_mode</code>, <code>eis_pwm_go</code></td><td>启动/停止 BQ EIS PWM。</td></tr>
+          <tr><td><code>EIS_MISC_CTRL</code></td><td><code>0x05A0</code></td><td><span class="tag write">写</span></td><td><code>eis_res_sel</code>, <code>eis_res_tone</code></td><td>读取结果时选择实部/虚部和 tone。</td></tr>
+          <tr><td><code>EIS_STAT</code></td><td><code>0x0A00</code></td><td><span class="tag read">读</span></td><td><code>eis_dfe_run</code>, <code>eis_dft_run</code>, <code>eis_dft_rdy</code></td><td>判断本次 EIS 是否完成。</td></tr>
+          <tr><td><code>EIS_CS_HI/MID/LOW</code></td><td><code>0x0A10..0x0A12</code></td><td><span class="tag read">读</span></td><td>24 bit 结果</td><td>读取电流 EIS 实部/虚部。</td></tr>
+          <tr><td><code>EIS_VC1_HI</code> 起</td><td><code>0x0A13</code> 起</td><td><span class="tag read">读</span></td><td>每通道 24 bit 结果</td><td>读取电压 EIS 实部/虚部。</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section id="risk">
+      <h2>15. 当前代码注意点</h2>
+      <ol>
+        <li>
+          <b>唤醒前不能写 EIS_Stop。</b>
+          当前已经修正：<code>gTaskWakeStackQuery</code> 分支只清 MCU 状态，然后 <code>InitBmicStack()</code>，不会先写 EIS/ADC/PWM 寄存器。
+        </li>
+        <li>
+          <b>31.25 kHz 是通过 BQ PWM 分频设置出来的，不是 MCU 直接给 BQ 250 kHz/31.25 kHz。</b>
+          MCU 写 <code>EIS_PWM_CTRL13/14</code> 的 <code>PWM_DIVISOR</code>；BQ 使用自己的 32 MHz HFO/晶振路径生成 PWM 载波。
+        </li>
+        <li>
+          <b>扫频结束和单频结束会关闭载波。</b>
+          <code>SysTask_ReadEis()</code> 在扫频最后一个频点完成后、单频结果上报后都会调用 <code>EIS_Stop()</code>。
+        </li>
+        <li>
+          <b><code>EIS_PWM()</code> 中 PWM_CTRL15 固定单播写。</b>
+          当前 <code>TOTALBOARDS=1</code> 时影响有限；后续如果恢复多板堆叠，建议把它改为使用传入的 <code>Writetype</code> 或明确指定目标设备。
+        </li>
+        <li>
+          <b>扫频表会覆盖默认计算结果。</b>
+          所以如果你改了 <code>EIS_Para_Calculation()</code>，扫频模式未必体现出来；扫频实际用的是 <code>eis_scan_dft_lengths/hpf/dsrs</code> 覆盖后的值。
+        </li>
+      </ol>
+    </section>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,10 @@
+si SWD
+speed 4000
+device N32L406CB
+connect
+r
+h
+loadfile D:\EIS_Code\Code\EIS_n32l406\N32L406\project\Objects\BMSCube_N32L406.hex
+r
+g
+qc

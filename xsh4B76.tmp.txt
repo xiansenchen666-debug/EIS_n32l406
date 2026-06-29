@@ -1,0 +1,908 @@
+=== System Boot ===
+
+
+
+=========================================================================================
+>>>>>>>>>>>>>>>>>>>>>>>>>>>> EIS SCAN START (TOTAL 23 FREQS) <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+=========================================================================================
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 0.1 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 0.10 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 10
+ - DFT Length                  / DFT长度     : 39063
+ - Target Freq Index           / 目标频率索引: 5
+ - HPF Coefficient             / 高通滤波系数: 0.999196
+ - DFE Wait Time               / DFE等待时间 : 50 s
+ - DFT Wait Time               / DFT等待时间 : 51 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x95 0x8B (Actual written/实际写入 = 38283)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x05
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x09 (DSR - 1 = 9)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xFC 0xB5
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 0.1 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 0.1     , 1         , 0   , 1.807084       , -2.998722      , 3.501127       , -58.926083     
+EIS_DATA, 0.1     , 1         , 1   , 1.848315       , -3.166639      , 3.666588       , -59.728600     
+EIS_DATA, 0.1     , 1         , 2   , 1.588844       , -3.358451      , 3.715322       , -64.681725     
+EIS_DATA, 0.1     , 1         , 3   , -3.964199      , 7.029573       , 8.070302       , 119.420036     
+<<< FREQ TEST END: 0.1 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 0.2 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 0.16 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 8
+ - DFT Length                  / DFT长度     : 30518
+ - Target Freq Index           / 目标频率索引: 5
+ - HPF Coefficient             / 高通滤波系数: 0.998971
+ - DFE Wait Time               / DFE等待时间 : 31 s
+ - DFT Wait Time               / DFT等待时间 : 32 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x74 0x2A (Actual written/实际写入 = 29738)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x05
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x07 (DSR - 1 = 7)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xFB 0xC9
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 0.2 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 0.2     , 1         , 0   , 1.220382       , -2.178724      , 2.497233       , -60.745243     
+EIS_DATA, 0.2     , 1         , 1   , 1.231028       , -2.302379      , 2.610819       , -61.867630     
+EIS_DATA, 0.2     , 1         , 2   , 1.028220       , -2.356346      , 2.570915       , -66.425385     
+EIS_DATA, 0.2     , 1         , 3   , -2.349391      , 4.323753       , 4.920821       , 118.518265     
+<<< FREQ TEST END: 0.2 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 0.3 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 0.25 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 5
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 5
+ - HPF Coefficient             / 高通滤波系数: 0.998995
+ - DFE Wait Time               / DFE等待时间 : 20 s
+ - DFT Wait Time               / DFT等待时间 : 20 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x05
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x04 (DSR - 1 = 4)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xFB 0xE2
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 0.3 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 0.3     , 1         , 0   , 0.931649       , -1.553727      , 1.811640       , -59.052170     
+EIS_DATA, 0.3     , 1         , 1   , 0.929410       , -1.635293      , 1.880954       , -60.388512     
+EIS_DATA, 0.3     , 1         , 2   , 0.780758       , -1.621383      , 1.799574       , -64.287399     
+EIS_DATA, 0.3     , 1         , 3   , -1.945273      , 3.024019       , 3.595661       , 122.752136     
+<<< FREQ TEST END: 0.3 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 0.4 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 0.40 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 4
+ - DFT Length                  / DFT长度     : 24414
+ - Target Freq Index           / 目标频率索引: 5
+ - HPF Coefficient             / 高通滤波系数: 0.998713
+ - DFE Wait Time               / DFE等待时间 : 13 s
+ - DFT Wait Time               / DFT等待时间 : 13 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x5C 0x52 (Actual written/实际写入 = 23634)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x05
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x03 (DSR - 1 = 3)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xFA 0xBB
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 0.4 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 0.4     , 1         , 0   , 0.627720       , -1.143622      , 1.304570       , -61.238178     
+EIS_DATA, 0.4     , 1         , 1   , 0.621489       , -1.191271      , 1.343643       , -62.448860     
+EIS_DATA, 0.4     , 1         , 2   , 0.516118       , -1.154930      , 1.265006       , -65.920952     
+EIS_DATA, 0.4     , 1         , 3   , -1.309154      , 2.329394       , 2.672071       , 119.336639     
+<<< FREQ TEST END: 0.4 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 0.6 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 0.63 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 2
+ - DFT Length                  / DFT长度     : 31002
+ - Target Freq Index           / 目标频率索引: 5
+ - HPF Coefficient             / 高通滤波系数: 0.998987
+ - DFE Wait Time               / DFE等待时间 : 8 s
+ - DFT Wait Time               / DFT等待时间 : 8 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x76 0x0E (Actual written/实际写入 = 30222)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x05
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x01 (DSR - 1 = 1)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xFB 0xD9
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 0.6 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 0.6     , 1         , 0   , 0.438324       , -0.846329      , 0.953101       , -62.619850     
+EIS_DATA, 0.6     , 1         , 1   , 0.432680       , -0.872840      , 0.974198       , -63.631714     
+EIS_DATA, 0.6     , 1         , 2   , 0.362141       , -0.825593      , 0.901526       , -66.315643     
+EIS_DATA, 0.6     , 1         , 3   , -0.909756      , 1.799256       , 2.016179       , 116.822495     
+<<< FREQ TEST END: 0.6 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 1.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 1.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 2
+ - DFT Length                  / DFT长度     : 19531
+ - Target Freq Index           / 目标频率索引: 5
+ - HPF Coefficient             / 高通滤波系数: 0.998392
+ - DFE Wait Time               / DFE等待时间 : 5 s
+ - DFT Wait Time               / DFT等待时间 : 5 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x49 0x3F (Actual written/实际写入 = 18751)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x05
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x01 (DSR - 1 = 1)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xF9 0x69
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 1.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 1.0     , 1         , 0   , 0.338129       , -0.647357      , 0.730344       , -62.420902     
+EIS_DATA, 1.0     , 1         , 1   , 0.328300       , -0.663266      , 0.740070       , -63.665737     
+EIS_DATA, 1.0     , 1         , 2   , 0.281621       , -0.619326      , 0.680349       , -65.547691     
+EIS_DATA, 1.0     , 1         , 3   , -0.685659      , 1.300225       , 1.469936       , 117.804405     
+<<< FREQ TEST END: 1.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 1.5 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 1.50 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 6
+ - HPF Coefficient             / 高通滤波系数: 0.998794
+ - DFE Wait Time               / DFE等待时间 : 3 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x06
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xFB 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 1.5 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 1.5     , 1         , 0   , 0.238898       , -0.461154      , 0.519360       , -62.613911     
+EIS_DATA, 1.5     , 1         , 1   , 0.236292       , -0.475646      , 0.531106       , -63.582687     
+EIS_DATA, 1.5     , 1         , 2   , 0.205367       , -0.431011      , 0.477438       , -64.523239     
+EIS_DATA, 1.5     , 1         , 3   , -0.468224      , 0.921697       , 1.033808       , 116.930672     
+<<< FREQ TEST END: 1.5 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 2.5 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 2.50 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 10
+ - HPF Coefficient             / 高通滤波系数: 0.997989
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x0A
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xF7 0xC4
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 2.5 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 2.5     , 1         , 0   , 0.174796       , -0.341776      , 0.383881       , -62.913216     
+EIS_DATA, 2.5     , 1         , 1   , 0.177793       , -0.341828      , 0.385301       , -62.520016     
+EIS_DATA, 2.5     , 1         , 2   , 0.153485       , -0.313801      , 0.349326       , -63.936024     
+EIS_DATA, 2.5     , 1         , 3   , -0.352426      , 0.669639       , 0.756717       , 117.757492     
+<<< FREQ TEST END: 2.5 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 4.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 4.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 16
+ - HPF Coefficient             / 高通滤波系数: 0.996783
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x10
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xF2 0xD3
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 4.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 4.0     , 1         , 0   , 0.129837       , -0.242304      , 0.274898       , -61.815639     
+EIS_DATA, 4.0     , 1         , 1   , 0.127158       , -0.242814      , 0.274094       , -62.359657     
+EIS_DATA, 4.0     , 1         , 2   , 0.116604       , -0.217316      , 0.246622       , -61.783466     
+EIS_DATA, 4.0     , 1         , 3   , -0.272024      , 0.474164       , 0.546652       , 119.842560     
+<<< FREQ TEST END: 4.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 6.3 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 6.25 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 25
+ - HPF Coefficient             / 高通滤波系数: 0.994973
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x19
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xEB 0x69
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 6.3 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 6.3     , 1         , 0   , 0.091260       , -0.161355      , 0.185375       , -60.508068     
+EIS_DATA, 6.3     , 1         , 1   , 0.099605       , -0.162245      , 0.190380       , -58.453434     
+EIS_DATA, 6.3     , 1         , 2   , 0.088930       , -0.149130      , 0.173633       , -59.191261     
+EIS_DATA, 6.3     , 1         , 3   , -0.198926      , 0.311105       , 0.369267       , 122.595551     
+<<< FREQ TEST END: 6.3 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 10.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 10.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 40
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x28
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 10.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 10.0    , 1         , 0   , 0.071427       , -0.123769      , 0.142901       , -60.010838     
+EIS_DATA, 10.0    , 1         , 1   , 0.072982       , -0.125478      , 0.145159       , -59.816387     
+EIS_DATA, 10.0    , 1         , 2   , 0.071060       , -0.110165      , 0.131095       , -57.176758     
+EIS_DATA, 10.0    , 1         , 3   , -0.174984      , 0.224842       , 0.284909       , 127.891945     
+<<< FREQ TEST END: 10.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 16.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 16.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 64
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x40
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 16.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 16.0    , 1         , 0   , 0.057798       , -0.083158      , 0.101271       , -55.199120     
+EIS_DATA, 16.0    , 1         , 1   , 0.062794       , -0.088234      , 0.108298       , -54.561295     
+EIS_DATA, 16.0    , 1         , 2   , 0.055364       , -0.074355      , 0.092703       , -53.329147     
+EIS_DATA, 16.0    , 1         , 3   , -0.138887      , 0.160926       , 0.212572       , 130.795731     
+<<< FREQ TEST END: 16.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 25.3 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 25.25 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 101
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0x65
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 25.3 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 25.3    , 1         , 0   , 0.043057       , -0.056874      , 0.071334       , -52.872269     
+EIS_DATA, 25.3    , 1         , 1   , 0.054728       , -0.061453      , 0.082290       , -48.312656     
+EIS_DATA, 25.3    , 1         , 2   , 0.045566       , -0.053600      , 0.070351       , -49.632183     
+EIS_DATA, 25.3    , 1         , 3   , -0.112759      , 0.105482       , 0.154405       , 136.909637     
+<<< FREQ TEST END: 25.3 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 40.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 40.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 160
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0xA0
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 40.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 40.0    , 1         , 0   , 0.038605       , -0.041209      , 0.056467       , -46.868732     
+EIS_DATA, 40.0    , 1         , 1   , 0.047767       , -0.042976      , 0.064255       , -41.977676     
+EIS_DATA, 40.0    , 1         , 2   , 0.039037       , -0.038828      , 0.055059       , -44.846050     
+EIS_DATA, 40.0    , 1         , 3   , -0.112412      , 0.086474       , 0.141825       , 142.430374     
+<<< FREQ TEST END: 40.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 63.5 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 63.50 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 254
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x00 0xFE
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 63.5 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 63.5    , 1         , 0   , 0.033845       , -0.027731      , 0.043755       , -39.330082     
+EIS_DATA, 63.5    , 1         , 1   , 0.029660       , -0.029536      , 0.041858       , -44.880482     
+EIS_DATA, 63.5    , 1         , 2   , 0.029341       , -0.022979      , 0.037268       , -38.067242     
+EIS_DATA, 63.5    , 1         , 3   , -0.088300      , 0.059942       , 0.106724       , 145.829437     
+<<< FREQ TEST END: 63.5 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 98.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 98.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 392
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x01 0x88
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 98.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 98.0    , 1         , 0   , 0.027184       , -0.020973      , 0.034334       , -37.650951     
+EIS_DATA, 98.0    , 1         , 1   , 0.032925       , -0.022287      , 0.039758       , -34.093842     
+EIS_DATA, 98.0    , 1         , 2   , 0.034892       , -0.020287      , 0.040361       , -30.174631     
+EIS_DATA, 98.0    , 1         , 3   , -0.086072      , 0.043189       , 0.096300       , 153.353210     
+<<< FREQ TEST END: 98.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 151.8 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 151.80 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 607
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x02 0x5F
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 151.8 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 151.8   , 1         , 0   , 0.024936       , -0.011413      , 0.027424       , -24.592270     
+EIS_DATA, 151.8   , 1         , 1   , 0.033981       , -0.013681      , 0.036631       , -21.930691     
+EIS_DATA, 151.8   , 1         , 2   , 0.025157       , -0.012252      , 0.027982       , -25.967386     
+EIS_DATA, 151.8   , 1         , 3   , -0.066302      , 0.027571       , 0.071806       , 157.420074     
+<<< FREQ TEST END: 151.8 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 235.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 235.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 940
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x03 0xAC
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 235.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 235.0   , 1         , 0   , 0.026005       , -0.008590      , 0.027387       , -18.279415     
+EIS_DATA, 235.0   , 1         , 1   , 0.033908       , -0.013887      , 0.036641       , -22.272346     
+EIS_DATA, 235.0   , 1         , 2   , 0.028127       , -0.010510      , 0.030026       , -20.489178     
+EIS_DATA, 235.0   , 1         , 3   , -0.087092      , 0.012332       , 0.087961       , 171.940948     
+<<< FREQ TEST END: 235.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 363.8 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 363.80 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 1455
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x05 0xAF
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 363.8 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 363.8   , 1         , 0   , 0.029849       , -0.005395      , 0.030332       , -10.246138     
+EIS_DATA, 363.8   , 1         , 1   , 0.024171       , -0.006685      , 0.025078       , -15.459024     
+EIS_DATA, 363.8   , 1         , 2   , 0.025547       , -0.005401      , 0.026112       , -11.937945     
+EIS_DATA, 363.8   , 1         , 3   , -0.079308      , 0.023523       , 0.082723       , 163.479401     
+<<< FREQ TEST END: 363.8 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 563.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 563.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 2252
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x08 0xCC
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 563.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 563.0   , 1         , 0   , 0.030417       , -0.001337      , 0.030446       , -2.517478      
+EIS_DATA, 563.0   , 1         , 1   , 0.033661       , -0.006678      , 0.034317       , -11.221891     
+EIS_DATA, 563.0   , 1         , 2   , 0.027111       , -0.003592      , 0.027348       , -7.547762      
+EIS_DATA, 563.0   , 1         , 3   , -0.066664      , 0.022651       , 0.070407       , 161.233246     
+<<< FREQ TEST END: 563.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 871.5 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 871.50 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 3486
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x0D 0x9E
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 871.5 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 871.5   , 1         , 0   , 0.026015       , -0.002357      , 0.026121       , -5.177590      
+EIS_DATA, 871.5   , 1         , 1   , 0.029900       , -0.007839      , 0.030910       , -14.690517     
+EIS_DATA, 871.5   , 1         , 2   , 0.023490       , -0.000001      , 0.023490       , -0.002508      
+EIS_DATA, 871.5   , 1         , 3   , -0.071976      , 0.019228       , 0.074500       , 165.043228     
+<<< FREQ TEST END: 871.5 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 1349.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 1349.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 5396
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x15 0x14
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 1349.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 1349.0  , 1         , 0   , 0.032592       , 0.000371       , 0.032594       , 0.652952       
+EIS_DATA, 1349.0  , 1         , 1   , 0.032515       , -0.003262      , 0.032678       , -5.729092      
+EIS_DATA, 1349.0  , 1         , 2   , 0.024294       , -0.003571      , 0.024555       , -8.363127      
+EIS_DATA, 1349.0  , 1         , 3   , -0.075594      , 0.026657       , 0.080157       , 160.575821     
+<<< FREQ TEST END: 1349.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+
+
+-----------------------------------------------------------------------------------------
+>>> FREQ CONFIG START: 2087.0 Hz, Test: 1/1 <<<
+
+=== EIS Configuration & Register Setup / EIS配置及底层寄存器状态 ===
+[1. Dynamic Parameters / 动态计算参数 (Freq: 2087.00 Hz)]
+ - Down Sample Rate (DSR)      / 降采样率    : 1
+ - DFT Length                  / DFT长度     : 31250
+ - Target Freq Index           / 目标频率索引: 8348
+ - HPF Coefficient             / 高通滤波系数: 0.991958
+ - DFE Wait Time               / DFE等待时间 : 2 s
+ - DFT Wait Time               / DFT等待时间 : 4 s
+[2. Low-level Register Configuration / 底层寄存器配置值]
+ [DFT Settings / 离散傅里叶变换设置]
+  - EIS_COM_CTRL2~4 (DFT_LEN)  : 0x00 0x77 0x06 (Actual written/实际写入 = 30470)
+  - EIS_COM_CTRL5~7 (FREQ_IDX) : 0x00 0x20 0x9C
+  - EIS_DFT_CTRL4   (DFT_MODE) : 0x04
+ [DFE Settings / 数字前端设置]
+  - EIS_DFE_CTRL26  (EIS_DSR)  : 0x00 (DSR - 1 = 0)
+  - EIS_DFE_CTRL5~7 (HPF_COEF) : 0x0F 0xDF 0x0F
+  - EIS_DFE_CTRL1~2 (VC_AMP)   : 0xA0 0x00
+  - EIS_DFE_CTRL3~4 (CS_AMP)   : 0xA0 0x00
+ [PWM Settings / PWM激励生成器设置]
+  - EIS_PWM_CTRL1   (AMP1)     : 0x73
+  - EIS_PWM_CTRL6   (PHASE1)   : 0x00
+  - EIS_PWM_CTRL11~12(DC_SHIFT): 0x08 0x00
+  - EIS_PWM_CTRL13~14(DIVISOR) : 0x00 0x00
+  - EIS_PWM_CTRL15  (MODE&GO)  : 0x05
+==================================================
+>>> FREQ TEST RESULT: 2087.0 Hz, Test: 1/1 <<<
+Header  , Freq(Hz), Test_Count, CH  , Real(Z')       , Imag(Z'')      , Mag(|Z|)       , Phase          
+EIS_DATA, 2087.0  , 1         , 0   , 0.034226       , -0.000053      , 0.034226       , -0.088620      
+EIS_DATA, 2087.0  , 1         , 1   , 0.037530       , -0.007698      , 0.038312       , -11.592040     
+EIS_DATA, 2087.0  , 1         , 2   , 0.020876       , -0.003643      , 0.021192       , -9.899517      
+EIS_DATA, 2087.0  , 1         , 3   , -0.071107      , 0.030088       , 0.077210       , 157.064850     
+<<< FREQ TEST END: 2087.0 Hz >>>
+-----------------------------------------------------------------------------------------
+
+=========================================================================================
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> EIS SCAN END <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+=========================================================================================

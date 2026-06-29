@@ -1,0 +1,9 @@
+*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Debug_NoBootNoClassB'
+compiling main.c...
+linking...
+Program Size: Code=20016 RO-data=1184 RW-data=356 ZI-data=9412  
+FromELF: creating hex file...
+After Build - User command #1: fromelf --bin  -o "BMSCube_N32L406.bin" "D:\EIS_Code\Code\EIS_n32l406\N32L406\project\Objects\BMSCube_N32L406.axf"
+".\Objects\BMSCube_N32L406.axf" - 0 Error(s), 0 Warning(s).
+Build Time Elapsed:  00:00:02

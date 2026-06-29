@@ -1,0 +1,8 @@
+si SWD
+speed 4000
+device N32L406CB
+connect
+h
+w1 0x20000923, 0x01
+g
+qc
